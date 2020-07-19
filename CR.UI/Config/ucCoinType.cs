@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CR.Entities;
+using CR.Entities.DTO;
 using CR.Utilities;
 using CR.Utilities.Enums;
 using CR.Utilities.Infraestructure;
@@ -64,14 +66,28 @@ namespace CR.UI.Config
         private void LoadCoins()
         {
             var coins = _coinServices.GetAll();
+            if (coins.Success && coins.Data.Any())
+            {
+                List<CoinsDTO> data = new List<CoinsDTO>();
+                coins.Data.ToList().ForEach(c =>
+                {
+                    data.Add(new CoinsDTO
+                    {
+                        Id = c.Id,
+                        Denominacion = c.Name,
+                        Descripcion = (string.IsNullOrEmpty(c.Description) ? "N/A" : c.Description),
+                        Tipo = ExtentionMethods.GetValueFromDescription<CoinsType>(c.Type.ToString()).ToString(),
+                        Estado = (c.IsActive ? "Activo" : "Inactivo")
+                    });
+                });
 
-            bsCoins.DataSource = coins;
+                bsCoins.DataSource = data;
+            }
         }
 
         private void LoadDefaultValues()
         {
             List<string> values = new List<string>();
-            values.Add("NONE");
             values.AddRange(Enum.GetNames(typeof(CoinsType)));
             cbCoinType.DataSource = values;
         }
@@ -84,7 +100,7 @@ namespace CR.UI.Config
                 return false;
             }
 
-            if (cbCoinType.SelectedText == "NONE")
+            if (cbCoinType.SelectedValue.ToString() == "NONE")
             {
                 MessageBox.Show($"Debe seleccioner un tipo de moneda", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

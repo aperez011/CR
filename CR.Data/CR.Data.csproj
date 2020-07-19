@@ -78,6 +78,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashRegisterAdapter.cs" />
+    <Compile Include="CashRegisterDetailsAdapter.cs" />
     <Compile Include="CoinAdapter.cs" />
     <Compile Include="dbModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

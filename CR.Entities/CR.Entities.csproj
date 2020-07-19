@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashRegister.cs" />
+    <Compile Include="CashRegisterDetails.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="DTO\CoinsDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />

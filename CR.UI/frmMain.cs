@@ -35,5 +35,11 @@ namespace CR.UI
         {
             pnMain.Controls.Clear();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ucCoins = new ucUsers(this, _loginServices);
+            pnMain.Controls.Add(ucCoins);
+        }
     }
 }

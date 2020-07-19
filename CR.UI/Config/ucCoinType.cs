@@ -87,6 +87,9 @@ namespace CR.UI.Config
 
         private void LoadDefaultValues()
         {
+            txtName.Clear();
+            txtDescription.Clear();
+
             List<string> values = new List<string>();
             values.AddRange(Enum.GetNames(typeof(CoinsType)));
             cbCoinType.DataSource = values;

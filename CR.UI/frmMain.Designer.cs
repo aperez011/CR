@@ -65,15 +65,16 @@
             // tsmiMonedas
             // 
             this.tsmiMonedas.Name = "tsmiMonedas";
-            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
+            this.tsmiMonedas.Size = new System.Drawing.Size(180, 22);
             this.tsmiMonedas.Text = "Monedas";
             this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // scMain
             // 

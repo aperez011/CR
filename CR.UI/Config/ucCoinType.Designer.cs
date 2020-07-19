@@ -71,9 +71,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(271, 62);
+            this.btnCancel.Location = new System.Drawing.Point(339, 62);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 36);
+            this.btnCancel.Size = new System.Drawing.Size(132, 36);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(271, 11);
+            this.btnSave.Location = new System.Drawing.Point(339, 11);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.Size = new System.Drawing.Size(132, 36);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -95,29 +95,29 @@
             this.cbCoinType.FormattingEnabled = true;
             this.cbCoinType.Items.AddRange(new object[] {
             "NONE"});
-            this.cbCoinType.Location = new System.Drawing.Point(112, 26);
+            this.cbCoinType.Location = new System.Drawing.Point(152, 26);
             this.cbCoinType.Name = "cbCoinType";
-            this.cbCoinType.Size = new System.Drawing.Size(127, 21);
+            this.cbCoinType.Size = new System.Drawing.Size(141, 21);
             this.cbCoinType.TabIndex = 7;
             // 
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(6, 77);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(233, 20);
+            this.txtDescription.Size = new System.Drawing.Size(287, 20);
             this.txtDescription.TabIndex = 6;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(6, 26);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(91, 20);
+            this.txtName.Size = new System.Drawing.Size(128, 20);
             this.txtName.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 10);
+            this.label3.Location = new System.Drawing.Point(149, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 13);
             this.label3.TabIndex = 4;

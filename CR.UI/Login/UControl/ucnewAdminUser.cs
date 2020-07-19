@@ -21,11 +21,11 @@ namespace CR.UI.Login.UControl
         {
             if (!this.ValidateUser()) return;
 
-            string password = txtPassword.Text;
+            string password = txtPassword.Text.Trim();
 
             var user = new User
             {
-                UserName = txtUser.Text,
+                UserName = txtUser.Text.Trim(),
                 Password = password.EncryptText(),
                 UserRol = Guid.Parse(UserRoles.Admin.GetDescription()),
                 LogDate = DateTime.Now,

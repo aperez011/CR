@@ -40,12 +40,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbCoins = new System.Windows.Forms.GroupBox();
             this.dgvCoins = new System.Windows.Forms.DataGridView();
-            this.bsCoins = new System.Windows.Forms.BindingSource(this.components);
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.denominacionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsCoins = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.gbCoins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoins)).BeginInit();
@@ -159,6 +159,7 @@
             this.dgvCoins.AllowUserToAddRows = false;
             this.dgvCoins.AllowUserToDeleteRows = false;
             this.dgvCoins.AutoGenerateColumns = false;
+            this.dgvCoins.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCoins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCoins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
@@ -174,10 +175,6 @@
             this.dgvCoins.RowHeadersVisible = false;
             this.dgvCoins.Size = new System.Drawing.Size(633, 280);
             this.dgvCoins.TabIndex = 0;
-            // 
-            // bsCoins
-            // 
-            this.bsCoins.DataSource = typeof(CR.Entities.DTO.CoinsDTO);
             // 
             // Editar
             // 
@@ -216,6 +213,10 @@
             this.estadoDataGridViewTextBoxColumn.HeaderText = "Estado";
             this.estadoDataGridViewTextBoxColumn.Name = "estadoDataGridViewTextBoxColumn";
             this.estadoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsCoins
+            // 
+            this.bsCoins.DataSource = typeof(CR.Entities.DTO.CoinsDTO);
             // 
             // ucCoinType
             // 

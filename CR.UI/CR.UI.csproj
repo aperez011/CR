@@ -74,6 +74,12 @@
     <Compile Include="Config\ucCoinType.Designer.cs">
       <DependentUpon>ucCoinType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config\ucUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Config\ucUsers.Designer.cs">
+      <DependentUpon>ucUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Config\ucCoinType.resx">
       <DependentUpon>ucCoinType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\ucUsers.resx">
+      <DependentUpon>ucUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

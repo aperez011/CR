@@ -33,12 +33,12 @@
             this.tsConfig = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiMonedas = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnMain = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
+            this.scMain.Panel2.SuspendLayout();
+            this.scMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -65,28 +65,28 @@
             // tsmiMonedas
             // 
             this.tsmiMonedas.Name = "tsmiMonedas";
-            this.tsmiMonedas.Size = new System.Drawing.Size(180, 22);
+            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
             this.tsmiMonedas.Text = "Monedas";
             this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
-            // splitContainer1
+            // scMain
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
-            this.splitContainer1.Name = "splitContainer1";
+            this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scMain.Location = new System.Drawing.Point(0, 25);
+            this.scMain.Name = "scMain";
             // 
-            // splitContainer1.Panel2
+            // scMain.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.pnMain);
-            this.splitContainer1.Size = new System.Drawing.Size(864, 425);
-            this.splitContainer1.SplitterDistance = 204;
-            this.splitContainer1.TabIndex = 1;
+            this.scMain.Panel2.Controls.Add(this.pnMain);
+            this.scMain.Size = new System.Drawing.Size(864, 425);
+            this.scMain.SplitterDistance = 204;
+            this.scMain.TabIndex = 1;
             // 
             // pnMain
             // 
@@ -101,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 450);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.scMain);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -109,9 +109,9 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.scMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
+            this.scMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,7 +123,7 @@
         private System.Windows.Forms.ToolStripDropDownButton tsConfig;
         private System.Windows.Forms.ToolStripMenuItem tsmiMonedas;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer scMain;
         private System.Windows.Forms.Panel pnMain;
     }
 }

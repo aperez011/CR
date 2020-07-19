@@ -21,8 +21,8 @@ namespace CR.UI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            var login = new frmLogin(_loginServices);
-            if (login.ShowDialog() != DialogResult.OK) this.Close();
+            //var login = new frmLogin(_loginServices);
+            //if (login.ShowDialog() != DialogResult.OK) this.Close();
         }
 
         private void tsmiMonedas_Click(object sender, EventArgs e)

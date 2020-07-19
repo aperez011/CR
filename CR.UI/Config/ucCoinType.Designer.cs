@@ -36,24 +36,33 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.cbCoinType = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bsCoins)).BeginInit();
             this.panel1.SuspendLayout();
             this.gbCoins.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoins)).BeginInit();
             this.SuspendLayout();
             // 
+            // bsCoins
+            // 
+            this.bsCoins.DataSource = typeof(CR.Entities.Coin);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.cbCoinType);
+            this.panel1.Controls.Add(this.txtDescription);
+            this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -81,11 +90,20 @@
             // 
             this.dgvCoins.AllowUserToAddRows = false;
             this.dgvCoins.AllowUserToDeleteRows = false;
+            this.dgvCoins.AutoGenerateColumns = false;
             this.dgvCoins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCoins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.logDateDataGridViewTextBoxColumn,
+            this.isActiveDataGridViewCheckBoxColumn});
+            this.dgvCoins.DataSource = this.bsCoins;
             this.dgvCoins.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCoins.Location = new System.Drawing.Point(3, 16);
             this.dgvCoins.Name = "dgvCoins";
             this.dgvCoins.ReadOnly = true;
+            this.dgvCoins.RowHeadersVisible = false;
             this.dgvCoins.Size = new System.Drawing.Size(633, 280);
             this.dgvCoins.TabIndex = 0;
             // 
@@ -116,27 +134,30 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Tipo";
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(91, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtName.Location = new System.Drawing.Point(6, 26);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(91, 20);
+            this.txtName.TabIndex = 5;
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(212, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtDescription.Location = new System.Drawing.Point(6, 77);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(233, 20);
+            this.txtDescription.TabIndex = 6;
             // 
-            // comboBox1
+            // cbCoinType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(112, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 21);
-            this.comboBox1.TabIndex = 7;
+            this.cbCoinType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCoinType.FormattingEnabled = true;
+            this.cbCoinType.Items.AddRange(new object[] {
+            "NONE"});
+            this.cbCoinType.Location = new System.Drawing.Point(112, 26);
+            this.cbCoinType.Name = "cbCoinType";
+            this.cbCoinType.Size = new System.Drawing.Size(127, 21);
+            this.cbCoinType.TabIndex = 7;
             // 
             // btnSave
             // 
@@ -158,6 +179,48 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Denominacion";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Tipo";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // logDateDataGridViewTextBoxColumn
+            // 
+            this.logDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.logDateDataGridViewTextBoxColumn.DataPropertyName = "LogDate";
+            this.logDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Creacion";
+            this.logDateDataGridViewTextBoxColumn.Name = "logDateDataGridViewTextBoxColumn";
+            this.logDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // isActiveDataGridViewCheckBoxColumn
+            // 
+            this.isActiveDataGridViewCheckBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.isActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
+            this.isActiveDataGridViewCheckBoxColumn.FalseValue = "";
+            this.isActiveDataGridViewCheckBoxColumn.HeaderText = "Estatus";
+            this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
+            this.isActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.isActiveDataGridViewCheckBoxColumn.TrueValue = "";
+            // 
             // ucCoinType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +229,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ucCoinType";
             this.Size = new System.Drawing.Size(645, 410);
+            this.Load += new System.EventHandler(this.ucCoinType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsCoins)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -182,11 +246,16 @@
         private System.Windows.Forms.DataGridView dgvCoins;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbCoinType;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn logDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
     }
 }

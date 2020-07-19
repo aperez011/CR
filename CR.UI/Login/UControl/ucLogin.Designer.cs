@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(27, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(157, 149);
-            this.panel1.TabIndex = 0;
             // 
             // label1
             // 
@@ -74,8 +67,10 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(202, 100);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '+';
             this.txtPassword.Size = new System.Drawing.Size(225, 20);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // btnLogin
@@ -97,6 +92,15 @@
             this.btnCancel.Text = "Salir";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CR.UI.Properties.Resources.Login_Manager;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(17, 24);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(167, 166);
+            this.panel1.TabIndex = 0;
             // 
             // ucLogin
             // 

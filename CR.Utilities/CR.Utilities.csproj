@@ -54,6 +54,7 @@
     <Compile Include="Infraestructure\ILoginServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="StatisProperties.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CR.Entities\CR.Entities.csproj">

@@ -1,4 +1,5 @@
 ﻿using CR.UI.Login.UControl;
+using CR.Utilities;
 using CR.Utilities.Infraestructure;
 using System;
 using System.Collections.Generic;

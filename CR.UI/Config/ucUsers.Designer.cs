@@ -43,10 +43,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbUsers = new System.Windows.Forms.GroupBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.bsUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.gbUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
@@ -115,15 +115,19 @@
             // 
             this.txtConfPassword.Location = new System.Drawing.Point(299, 82);
             this.txtConfPassword.Name = "txtConfPassword";
+            this.txtConfPassword.PasswordChar = '+';
             this.txtConfPassword.Size = new System.Drawing.Size(164, 20);
             this.txtConfPassword.TabIndex = 17;
+            this.txtConfPassword.UseSystemPasswordChar = true;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(130, 82);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '+';
             this.txtPassword.Size = new System.Drawing.Size(163, 20);
             this.txtPassword.TabIndex = 16;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUser
             // 
@@ -137,9 +141,9 @@
             // 
             this.panel2.BackgroundImage = global::CR.UI.Properties.Resources.decision;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(3, 8);
+            this.panel2.Location = new System.Drawing.Point(-9, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(118, 101);
+            this.panel2.Size = new System.Drawing.Size(130, 116);
             this.panel2.TabIndex = 14;
             // 
             // label3
@@ -202,10 +206,6 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(631, 279);
             this.dgvUsuarios.TabIndex = 0;
             // 
-            // bsUsuarios
-            // 
-            this.bsUsuarios.DataSource = typeof(CR.Entities.DTO.UserDTO);
-            // 
             // Editar
             // 
             this.Editar.DataPropertyName = "Id";
@@ -230,6 +230,10 @@
             this.rolDataGridViewTextBoxColumn.HeaderText = "Rol de Usuario";
             this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
             this.rolDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bsUsuarios
+            // 
+            this.bsUsuarios.DataSource = typeof(CR.Entities.DTO.UserDTO);
             // 
             // ucUsers
             // 

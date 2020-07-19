@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CR.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace CR.Utilities
 {
     public partial class FormBase : Form
     {
+
         public virtual void CloseControl()
         {
             throw new NotImplementedException();

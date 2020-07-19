@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CR.Utilities.Infraestructure;
+using CR.Utilities;
+using CR.Entities.DTO;
+using CR.Utilities.Enums;
 
 namespace CR.UI.Login.UControl
 {
@@ -36,6 +39,14 @@ namespace CR.UI.Login.UControl
 
             if (validUser.Success)
             {
+                var user = validUser.Data;
+                StatisProperties.User = new UserDTO
+                                            {
+                                                Id = user.Id,
+                                                UserName = user.UserName,
+                                                Rol = ExtentionMethods.GetValueFromDescription<UserRoles>(user.UserRol.ToString()).ToString()
+                                            };
+
                 _frm.DialogResult = DialogResult.OK;
                 return;
             }

@@ -1,4 +1,5 @@
-﻿using CR.UI.Config;
+﻿using CR.UI.Caja;
+using CR.UI.Config;
 using CR.UI.Login;
 using CR.Utilities;
 using CR.Utilities.Infraestructure;
@@ -21,8 +22,10 @@ namespace CR.UI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            //var login = new frmLogin(_loginServices);
-            //if (login.ShowDialog() != DialogResult.OK) this.Close();
+            var login = new frmLogin(_loginServices);
+            if (login.ShowDialog() != DialogResult.OK) this.Close();
+
+            bsUser.DataSource = StatisProperties.User;
         }
 
         private void tsmiMonedas_Click(object sender, EventArgs e)
@@ -40,6 +43,12 @@ namespace CR.UI
         {
             var ucCoins = new ucUsers(this, _loginServices);
             pnMain.Controls.Add(ucCoins);
+        }
+
+        private void btnOpenCashier_Click(object sender, EventArgs e)
+        {
+            var openCashier = new ucOpenCashier(this, _coinServices);
+            pnMain.Controls.Add(openCashier);
         }
     }
 }

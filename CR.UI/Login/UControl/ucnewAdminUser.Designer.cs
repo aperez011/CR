@@ -85,15 +85,19 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(225, 65);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '+';
             this.txtPassword.Size = new System.Drawing.Size(176, 20);
             this.txtPassword.TabIndex = 7;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfPassword
             // 
             this.txtConfPassword.Location = new System.Drawing.Point(225, 113);
             this.txtConfPassword.Name = "txtConfPassword";
+            this.txtConfPassword.PasswordChar = '+';
             this.txtConfPassword.Size = new System.Drawing.Size(176, 20);
             this.txtConfPassword.TabIndex = 8;
+            this.txtConfPassword.UseSystemPasswordChar = true;
             // 
             // btnSave
             // 

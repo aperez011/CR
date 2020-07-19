@@ -1,6 +1,6 @@
-﻿namespace CR.UI.Login
+﻿namespace CR.UI.Caja
 {
-    partial class frmLogin
+    partial class CoinAmount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.pnMain = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // pnMain
-            // 
-            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.Location = new System.Drawing.Point(0, 0);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(514, 244);
-            this.pnMain.TabIndex = 0;
-            // 
-            // frmLogin
+            // CoinAmount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 244);
-            this.ControlBox = false;
-            this.Controls.Add(this.pnMain);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmLogin";
+            this.ClientSize = new System.Drawing.Size(424, 181);
+            this.Name = "CoinAmount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Text = "Cantidad de Billetes";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnMain;
     }
 }

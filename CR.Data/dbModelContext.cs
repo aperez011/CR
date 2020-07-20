@@ -15,7 +15,7 @@ namespace CR.Data
             Database.SetInitializer<dbModelContext>(null);
         }
 
-        public dbModelContext() 
+        public dbModelContext()
             : base("Name=dbCashRegister")
         {
 
@@ -32,6 +32,11 @@ namespace CR.Data
             modelBuilder.Configurations.Add(new CoinAdapter());
             modelBuilder.Configurations.Add(new CashRegisterAdapter());
             modelBuilder.Configurations.Add(new CashRegisterDetailsAdapter());
+
+            modelBuilder.Entity<CashRegister>()
+                        .HasMany<CashRegisterDetails>(g => g.Details)
+                        .WithRequired(s => s.CashRegister)
+                        .HasForeignKey<int>(s => s.CashRegisterId);
         }
     }
 }

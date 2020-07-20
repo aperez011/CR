@@ -40,7 +40,7 @@ namespace CR.UI.Login.UControl
             if (validUser.Success)
             {
                 var user = validUser.Data;
-                StatisProperties.User = new UserDTO
+                StaticProperties.User = new UserDTO
                                             {
                                                 Id = user.Id,
                                                 UserName = user.UserName,

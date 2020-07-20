@@ -2,7 +2,7 @@
 
 namespace CR.Utilities
 {
-    public static class StatisProperties
+    public static class StaticProperties
     {
         public static UserDTO User { get; set; }
     }

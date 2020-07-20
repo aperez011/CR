@@ -30,6 +30,7 @@ namespace CR.UI
             _con = new Container();
             _con.Register<ILoginServices, LoginServices>();
             _con.Register<ICoinServices, CoinServices>();
+            _con.Register<ICashRegisterServices, CashRegisterServices>();
 
             _con.Verify();
         }

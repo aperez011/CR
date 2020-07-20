@@ -31,14 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.tsConfig = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsmiMonedas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
+            this.btnReport = new System.Windows.Forms.Button();
             this.lbId = new System.Windows.Forms.Label();
-            this.bsUser = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.btnCloseCashier = new System.Windows.Forms.Button();
             this.btnOpenCashier = new System.Windows.Forms.Button();
@@ -46,8 +43,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.userPicture = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bsUser = new System.Windows.Forms.BindingSource(this.components);
+            this.userPicture = new System.Windows.Forms.Panel();
+            this.tsbReports = new System.Windows.Forms.ToolStripButton();
+            this.tsConfig = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsmiMonedas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
@@ -61,37 +64,14 @@
             // tsMenu
             // 
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbReports,
+            this.toolStripSeparator1,
             this.tsConfig});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMenu.Name = "tsMenu";
             this.tsMenu.Size = new System.Drawing.Size(965, 25);
             this.tsMenu.TabIndex = 0;
             this.tsMenu.Text = "toolStrip1";
-            // 
-            // tsConfig
-            // 
-            this.tsConfig.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiMonedas,
-            this.tsmiUsuarios});
-            this.tsConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsConfig.Image")));
-            this.tsConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsConfig.Name = "tsConfig";
-            this.tsConfig.Size = new System.Drawing.Size(112, 22);
-            this.tsConfig.Text = "Configuracion";
-            // 
-            // tsmiMonedas
-            // 
-            this.tsmiMonedas.Name = "tsmiMonedas";
-            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
-            this.tsmiMonedas.Text = "Monedas";
-            this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
-            // 
-            // tsmiUsuarios
-            // 
-            this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(123, 22);
-            this.tsmiUsuarios.Text = "Usuarios";
-            this.tsmiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // scMain
             // 
@@ -124,6 +104,7 @@
             // 
             // gbUserInfo
             // 
+            this.gbUserInfo.Controls.Add(this.btnReport);
             this.gbUserInfo.Controls.Add(this.lbId);
             this.gbUserInfo.Controls.Add(this.label4);
             this.gbUserInfo.Controls.Add(this.btnCloseCashier);
@@ -139,6 +120,19 @@
             this.gbUserInfo.TabStop = false;
             this.gbUserInfo.Text = "Informacion de Usuario";
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnReport.Location = new System.Drawing.Point(9, 234);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(166, 50);
+            this.btnReport.TabIndex = 9;
+            this.btnReport.Text = "VER REPORTE";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // lbId
             // 
             this.lbId.AutoSize = true;
@@ -148,10 +142,6 @@
             this.lbId.Size = new System.Drawing.Size(10, 13);
             this.lbId.TabIndex = 8;
             this.lbId.Text = "-";
-            // 
-            // bsUser
-            // 
-            this.bsUser.DataSource = typeof(CR.Entities.DTO.UserDTO);
             // 
             // label4
             // 
@@ -167,12 +157,13 @@
             this.btnCloseCashier.BackColor = System.Drawing.Color.OrangeRed;
             this.btnCloseCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseCashier.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCloseCashier.Location = new System.Drawing.Point(9, 178);
+            this.btnCloseCashier.Location = new System.Drawing.Point(9, 172);
             this.btnCloseCashier.Name = "btnCloseCashier";
             this.btnCloseCashier.Size = new System.Drawing.Size(166, 50);
             this.btnCloseCashier.TabIndex = 5;
             this.btnCloseCashier.Text = "CERRAR CAJA";
             this.btnCloseCashier.UseVisualStyleBackColor = false;
+            this.btnCloseCashier.Click += new System.EventHandler(this.btnCloseCashier_Click);
             // 
             // btnOpenCashier
             // 
@@ -225,6 +216,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario:";
             // 
+            // pnMain
+            // 
+            this.pnMain.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 0);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(753, 466);
+            this.pnMain.TabIndex = 0;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bsUser
+            // 
+            this.bsUser.DataSource = typeof(CR.Entities.DTO.UserDTO);
+            // 
             // userPicture
             // 
             this.userPicture.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userPicture.BackgroundImage")));
@@ -234,14 +243,38 @@
             this.userPicture.Size = new System.Drawing.Size(185, 144);
             this.userPicture.TabIndex = 0;
             // 
-            // pnMain
+            // tsbReports
             // 
-            this.pnMain.BackColor = System.Drawing.Color.AliceBlue;
-            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMain.Location = new System.Drawing.Point(0, 0);
-            this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(753, 466);
-            this.pnMain.TabIndex = 0;
+            this.tsbReports.Image = ((System.Drawing.Image)(resources.GetObject("tsbReports.Image")));
+            this.tsbReports.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbReports.Name = "tsbReports";
+            this.tsbReports.Size = new System.Drawing.Size(69, 22);
+            this.tsbReports.Text = "Repotes";
+            // 
+            // tsConfig
+            // 
+            this.tsConfig.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiMonedas,
+            this.tsmiUsuarios});
+            this.tsConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsConfig.Image")));
+            this.tsConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsConfig.Name = "tsConfig";
+            this.tsConfig.Size = new System.Drawing.Size(112, 22);
+            this.tsConfig.Text = "Configuracion";
+            // 
+            // tsmiMonedas
+            // 
+            this.tsmiMonedas.Name = "tsmiMonedas";
+            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
+            this.tsmiMonedas.Text = "Monedas";
+            this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
+            // 
+            // tsmiUsuarios
+            // 
+            this.tsmiUsuarios.Name = "tsmiUsuarios";
+            this.tsmiUsuarios.Size = new System.Drawing.Size(123, 22);
+            this.tsmiUsuarios.Text = "Usuarios";
+            this.tsmiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -292,5 +325,8 @@
         private System.Windows.Forms.BindingSource bsUser;
         private System.Windows.Forms.Label lbId;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.ToolStripButton tsbReports;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

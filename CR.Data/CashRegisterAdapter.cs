@@ -16,11 +16,13 @@ namespace CR.Data
 
             this.ToTable("CashRegister");
             this.Property(t => t.Id);
+            this.Property(t => t.DateRegister);
             this.Property(t => t.CashierId);
             this.Property(t => t.TotalAmount);
             this.Property(t => t.RegisterType);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);
+            
         }
     }
 }

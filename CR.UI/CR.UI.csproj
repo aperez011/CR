@@ -68,11 +68,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caja\CoinAmount.cs">
+    <Compile Include="Caja\CashCoinAmount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caja\CoinAmount.Designer.cs">
-      <DependentUpon>CoinAmount.cs</DependentUpon>
+    <Compile Include="Caja\CashCoinAmount.Designer.cs">
+      <DependentUpon>CashCoinAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caja\ucCloseCashier.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Caja\ucCloseCashier.Designer.cs">
+      <DependentUpon>ucCloseCashier.cs</DependentUpon>
     </Compile>
     <Compile Include="Caja\ucOpenCashier.cs">
       <SubType>UserControl</SubType>
@@ -118,8 +124,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Caja\CoinAmount.resx">
-      <DependentUpon>CoinAmount.cs</DependentUpon>
+    <Compile Include="Reporte\frmReporteCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\frmReporteCaja.Designer.cs">
+      <DependentUpon>frmReporteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte\ucCashierReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reporte\ucCashierReport.Designer.cs">
+      <DependentUpon>ucCashierReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Caja\CashCoinAmount.resx">
+      <DependentUpon>CashCoinAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Caja\ucCloseCashier.resx">
+      <DependentUpon>ucCloseCashier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\ucOpenCashier.resx">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
@@ -147,7 +168,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\frmReporteCaja.resx">
+      <DependentUpon>frmReporteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\ucCashierReport.resx">
+      <DependentUpon>ucCashierReport.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\CR.Entities.CashRegisterDetails.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CoinsDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.UserDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.User.datasource" />

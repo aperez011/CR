@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CR.Utilities;
 
-namespace CR.UI.Caja
+namespace CR.UI.Reporte
 {
-    public partial class CoinAmount : Form
+    public partial class ucCashierReport : UserControl
     {
-        public CoinAmount()
+        private readonly FormBase _frm;
+
+        public ucCashierReport(FormBase frm)
         {
             InitializeComponent();
+            _frm = frm;
         }
     }
 }

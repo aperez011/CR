@@ -1,6 +1,6 @@
 ﻿namespace CR.UI.Caja
 {
-    partial class ucOpenCashier
+    partial class ucCloseCashier
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnPreview = new System.Windows.Forms.Button();
             this.pnCenter = new System.Windows.Forms.Panel();
-            this.gbCoins = new System.Windows.Forms.GroupBox();
+            this.gbCashCoins = new System.Windows.Forms.GroupBox();
+            this.gbCardsAndCredits = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
@@ -56,9 +57,9 @@
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.pnCenter);
-            this.scMain.Size = new System.Drawing.Size(712, 341);
-            this.scMain.SplitterDistance = 56;
-            this.scMain.TabIndex = 0;
+            this.scMain.Size = new System.Drawing.Size(711, 353);
+            this.scMain.SplitterDistance = 46;
+            this.scMain.TabIndex = 1;
             // 
             // btnSave
             // 
@@ -68,7 +69,6 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnPreview
             // 
@@ -81,31 +81,40 @@
             // 
             // pnCenter
             // 
-            this.pnCenter.Controls.Add(this.gbCoins);
+            this.pnCenter.Controls.Add(this.gbCardsAndCredits);
+            this.pnCenter.Controls.Add(this.gbCashCoins);
             this.pnCenter.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnCenter.Location = new System.Drawing.Point(0, 0);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(712, 281);
+            this.pnCenter.Size = new System.Drawing.Size(711, 303);
             this.pnCenter.TabIndex = 1;
             // 
-            // gbCoins
+            // gbCashCoins
             // 
-            this.gbCoins.Location = new System.Drawing.Point(13, 5);
-            this.gbCoins.Name = "gbCoins";
-            this.gbCoins.Size = new System.Drawing.Size(685, 150);
-            this.gbCoins.TabIndex = 0;
-            this.gbCoins.TabStop = false;
-            this.gbCoins.Text = "Billetes";
+            this.gbCashCoins.Location = new System.Drawing.Point(13, 13);
+            this.gbCashCoins.Name = "gbCashCoins";
+            this.gbCashCoins.Size = new System.Drawing.Size(685, 133);
+            this.gbCashCoins.TabIndex = 0;
+            this.gbCashCoins.TabStop = false;
+            this.gbCashCoins.Text = "Billetes";
             // 
-            // ucOpenCashier
+            // gbCardsAndCredits
+            // 
+            this.gbCardsAndCredits.Location = new System.Drawing.Point(13, 155);
+            this.gbCardsAndCredits.Name = "gbCardsAndCredits";
+            this.gbCardsAndCredits.Size = new System.Drawing.Size(685, 133);
+            this.gbCardsAndCredits.TabIndex = 1;
+            this.gbCardsAndCredits.TabStop = false;
+            this.gbCardsAndCredits.Text = "Tarjetas y Creditos";
+            // 
+            // ucCloseCashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scMain);
-            this.Name = "ucOpenCashier";
-            this.Size = new System.Drawing.Size(712, 341);
-            this.Load += new System.EventHandler(this.ucOpenCashier_Load);
+            this.Name = "ucCloseCashier";
+            this.Size = new System.Drawing.Size(711, 353);
             this.scMain.Panel1.ResumeLayout(false);
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
@@ -118,9 +127,10 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer scMain;
-        private System.Windows.Forms.Panel pnCenter;
-        private System.Windows.Forms.GroupBox gbCoins;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnPreview;
+        private System.Windows.Forms.Panel pnCenter;
+        private System.Windows.Forms.GroupBox gbCashCoins;
+        private System.Windows.Forms.GroupBox gbCardsAndCredits;
     }
 }

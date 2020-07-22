@@ -66,9 +66,8 @@ namespace CR.Services
 
                 return OperationResult.SetSucces();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 throw;
             }
         }

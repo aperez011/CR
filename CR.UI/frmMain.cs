@@ -42,6 +42,7 @@ namespace CR.UI
 
         private void tsmiMonedas_Click(object sender, EventArgs e)
         {
+            this.CloseControl();
             var ucCoins = new ucCoinType(this, _coinServices);
             pnMain.Controls.Add(ucCoins);
         }
@@ -53,12 +54,15 @@ namespace CR.UI
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.CloseControl();
             var ucCoins = new ucUsers(this, _loginServices);
             pnMain.Controls.Add(ucCoins);
         }
 
         private void btnOpenCashier_Click(object sender, EventArgs e)
         {
+            this.CloseControl();
+
             var date = DateTime.Now.Date;
             var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
 
@@ -83,6 +87,7 @@ namespace CR.UI
 
         private void btnReport_Click(object sender, EventArgs e)
         {
+            this.CloseControl();
 
             var ucReport = new ucCashierReport(this);
             pnMain.Controls.Add(ucReport);
@@ -90,6 +95,8 @@ namespace CR.UI
 
         private void btnCloseCashier_Click(object sender, EventArgs e)
         {
+            this.CloseControl();
+
             var date = DateTime.Now.Date;
             var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
 
@@ -113,8 +120,15 @@ namespace CR.UI
                 }
             }
 
-            var openCashier = new ucCloseCashier();
+            var openCashier = new ucCloseCashier(this, _coinServices, _cashRegisterServices);
             pnMain.Controls.Add(openCashier);
+        }
+
+        private void tsbReports_Click(object sender, EventArgs e)
+        {
+            var report = new frmReporteCaja();
+
+            report.ShowDialog();
         }
     }
 }

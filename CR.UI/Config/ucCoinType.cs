@@ -57,6 +57,7 @@ namespace CR.UI.Config
                 return;
             }
 
+            this.LoadDefaultValues();
             this.LoadCoins();
 
         }

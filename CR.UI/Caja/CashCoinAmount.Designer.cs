@@ -107,6 +107,7 @@
             this.txtAmount.Size = new System.Drawing.Size(225, 20);
             this.txtAmount.TabIndex = 11;
             this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
             // 
             // lbTipo
             // 
@@ -143,9 +144,11 @@
             // 
             // CashCoinAmount
             // 
+            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(248, 151);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;

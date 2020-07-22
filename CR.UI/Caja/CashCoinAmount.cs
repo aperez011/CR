@@ -30,13 +30,14 @@ namespace CR.UI.Caja
 
         private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) || (e.KeyChar == (char)Keys.Back))
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
                 e.Handled = true;
         }
 
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
-            lbMonto.Text = (int.Parse(_coinDenomination.Name) * int.Parse(txtAmount.Text)).ToString();
+            if (!int.TryParse(txtAmount.Text, out int val)) return;
+            lbMonto.Text = (int.Parse(_coinDenomination.Name) * val).ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

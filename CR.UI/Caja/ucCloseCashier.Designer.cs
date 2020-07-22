@@ -30,12 +30,14 @@
         {
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.btnSave = new System.Windows.Forms.Button();
-            this.btnPreview = new System.Windows.Forms.Button();
             this.pnCenter = new System.Windows.Forms.Panel();
-            this.gbCashCoins = new System.Windows.Forms.GroupBox();
             this.gbCardsAndCredits = new System.Windows.Forms.GroupBox();
+            this.gbCashCoins = new System.Windows.Forms.GroupBox();
+            this.gbDetails = new System.Windows.Forms.GroupBox();
+            this.lbMontoTotal = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
-            this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
             this.pnCenter.SuspendLayout();
@@ -44,69 +46,105 @@
             // scMain
             // 
             this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scMain.IsSplitterFixed = true;
             this.scMain.Location = new System.Drawing.Point(0, 0);
             this.scMain.Name = "scMain";
             this.scMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // scMain.Panel1
-            // 
-            this.scMain.Panel1.Controls.Add(this.btnSave);
-            this.scMain.Panel1.Controls.Add(this.btnPreview);
-            // 
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.pnCenter);
-            this.scMain.Size = new System.Drawing.Size(711, 353);
-            this.scMain.SplitterDistance = 46;
+            this.scMain.Size = new System.Drawing.Size(712, 487);
+            this.scMain.SplitterDistance = 25;
             this.scMain.TabIndex = 1;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(120, 8);
+            this.btnSave.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(450, 342);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(91, 31);
+            this.btnSave.Size = new System.Drawing.Size(252, 52);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnPreview
-            // 
-            this.btnPreview.Location = new System.Drawing.Point(13, 8);
-            this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(91, 31);
-            this.btnPreview.TabIndex = 0;
-            this.btnPreview.Text = "Vista Previa";
-            this.btnPreview.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnCenter
             // 
+            this.pnCenter.Controls.Add(this.btnExit);
+            this.pnCenter.Controls.Add(this.lbMontoTotal);
+            this.pnCenter.Controls.Add(this.label1);
+            this.pnCenter.Controls.Add(this.gbDetails);
+            this.pnCenter.Controls.Add(this.btnSave);
             this.pnCenter.Controls.Add(this.gbCardsAndCredits);
             this.pnCenter.Controls.Add(this.gbCashCoins);
             this.pnCenter.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnCenter.Location = new System.Drawing.Point(0, 0);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(711, 303);
+            this.pnCenter.Size = new System.Drawing.Size(712, 458);
             this.pnCenter.TabIndex = 1;
+            // 
+            // gbCardsAndCredits
+            // 
+            this.gbCardsAndCredits.Location = new System.Drawing.Point(13, 115);
+            this.gbCardsAndCredits.Name = "gbCardsAndCredits";
+            this.gbCardsAndCredits.Size = new System.Drawing.Size(691, 130);
+            this.gbCardsAndCredits.TabIndex = 1;
+            this.gbCardsAndCredits.TabStop = false;
+            this.gbCardsAndCredits.Text = "Tarjetas y Creditos";
             // 
             // gbCashCoins
             // 
-            this.gbCashCoins.Location = new System.Drawing.Point(13, 13);
+            this.gbCashCoins.Location = new System.Drawing.Point(13, 2);
             this.gbCashCoins.Name = "gbCashCoins";
-            this.gbCashCoins.Size = new System.Drawing.Size(685, 133);
+            this.gbCashCoins.Size = new System.Drawing.Size(691, 113);
             this.gbCashCoins.TabIndex = 0;
             this.gbCashCoins.TabStop = false;
             this.gbCashCoins.Text = "Billetes";
             // 
-            // gbCardsAndCredits
+            // gbDetails
             // 
-            this.gbCardsAndCredits.Location = new System.Drawing.Point(13, 155);
-            this.gbCardsAndCredits.Name = "gbCardsAndCredits";
-            this.gbCardsAndCredits.Size = new System.Drawing.Size(685, 133);
-            this.gbCardsAndCredits.TabIndex = 1;
-            this.gbCardsAndCredits.TabStop = false;
-            this.gbCardsAndCredits.Text = "Tarjetas y Creditos";
+            this.gbDetails.Location = new System.Drawing.Point(13, 247);
+            this.gbDetails.Name = "gbDetails";
+            this.gbDetails.Size = new System.Drawing.Size(429, 205);
+            this.gbDetails.TabIndex = 2;
+            this.gbDetails.TabStop = false;
+            this.gbDetails.Text = "Detalles";
+            // 
+            // lbMontoTotal
+            // 
+            this.lbMontoTotal.AutoSize = true;
+            this.lbMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMontoTotal.Location = new System.Drawing.Point(587, 256);
+            this.lbMontoTotal.Name = "lbMontoTotal";
+            this.lbMontoTotal.Size = new System.Drawing.Size(20, 24);
+            this.lbMontoTotal.TabIndex = 5;
+            this.lbMontoTotal.Text = "_";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(446, 256);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Monto Total RD:";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExit.Location = new System.Drawing.Point(450, 400);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(252, 52);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "SALIR";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ucCloseCashier
             // 
@@ -114,12 +152,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scMain);
             this.Name = "ucCloseCashier";
-            this.Size = new System.Drawing.Size(711, 353);
-            this.scMain.Panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(712, 487);
+            this.Load += new System.EventHandler(this.ucCloseCashier_Load);
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
             this.pnCenter.ResumeLayout(false);
+            this.pnCenter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -128,9 +167,12 @@
 
         private System.Windows.Forms.SplitContainer scMain;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Panel pnCenter;
         private System.Windows.Forms.GroupBox gbCashCoins;
         private System.Windows.Forms.GroupBox gbCardsAndCredits;
+        private System.Windows.Forms.GroupBox gbDetails;
+        private System.Windows.Forms.Label lbMontoTotal;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExit;
     }
 }

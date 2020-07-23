@@ -13,7 +13,7 @@ namespace CR.Entities
         public int CashRegisterId { get; set; }
         public int CoinId { get; set; }
         public int CoinAmount { get; set; }
-        public string RefNUmber { get; set; }
+        public string RefNumber { get; set; }
         public decimal TotalAmount { get; set; }
 
         public virtual CashRegister CashRegister { get; set; }

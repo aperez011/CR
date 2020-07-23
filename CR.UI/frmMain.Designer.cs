@@ -39,10 +39,12 @@
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
+            this.lbCajaEstatus = new System.Windows.Forms.Label();
+            this.bsUser = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.btnGastos = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.lbId = new System.Windows.Forms.Label();
-            this.bsUser = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.btnCloseCashier = new System.Windows.Forms.Button();
             this.btnOpenCashier = new System.Windows.Forms.Button();
@@ -127,7 +129,7 @@
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.pnMain);
-            this.scMain.Size = new System.Drawing.Size(920, 493);
+            this.scMain.Size = new System.Drawing.Size(920, 513);
             this.scMain.SplitterDistance = 198;
             this.scMain.TabIndex = 1;
             // 
@@ -139,11 +141,13 @@
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMenu.Location = new System.Drawing.Point(0, 0);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(198, 493);
+            this.pnMenu.Size = new System.Drawing.Size(198, 513);
             this.pnMenu.TabIndex = 0;
             // 
             // gbUserInfo
             // 
+            this.gbUserInfo.Controls.Add(this.lbCajaEstatus);
+            this.gbUserInfo.Controls.Add(this.label5);
             this.gbUserInfo.Controls.Add(this.btnGastos);
             this.gbUserInfo.Controls.Add(this.btnReport);
             this.gbUserInfo.Controls.Add(this.lbId);
@@ -156,29 +160,53 @@
             this.gbUserInfo.Controls.Add(this.label1);
             this.gbUserInfo.Location = new System.Drawing.Point(9, 149);
             this.gbUserInfo.Name = "gbUserInfo";
-            this.gbUserInfo.Size = new System.Drawing.Size(185, 332);
+            this.gbUserInfo.Size = new System.Drawing.Size(185, 352);
             this.gbUserInfo.TabIndex = 1;
             this.gbUserInfo.TabStop = false;
             this.gbUserInfo.Text = "Informacion de Usuario";
+            // 
+            // lbCajaEstatus
+            // 
+            this.lbCajaEstatus.AutoSize = true;
+            this.lbCajaEstatus.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUser, "Rol", true));
+            this.lbCajaEstatus.Location = new System.Drawing.Point(76, 81);
+            this.lbCajaEstatus.Name = "lbCajaEstatus";
+            this.lbCajaEstatus.Size = new System.Drawing.Size(10, 13);
+            this.lbCajaEstatus.TabIndex = 12;
+            this.lbCajaEstatus.Text = "-";
+            // 
+            // bsUser
+            // 
+            this.bsUser.DataSource = typeof(CR.Entities.DTO.UserDTO);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 81);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Caja Estado:";
             // 
             // btnGastos
             // 
             this.btnGastos.BackColor = System.Drawing.Color.SlateGray;
             this.btnGastos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGastos.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnGastos.Location = new System.Drawing.Point(6, 202);
+            this.btnGastos.Location = new System.Drawing.Point(6, 238);
             this.btnGastos.Name = "btnGastos";
             this.btnGastos.Size = new System.Drawing.Size(173, 50);
             this.btnGastos.TabIndex = 10;
             this.btnGastos.Text = "GASTOS";
             this.btnGastos.UseVisualStyleBackColor = false;
+            this.btnGastos.Click += new System.EventHandler(this.btnGastos_Click);
             // 
             // btnReport
             // 
             this.btnReport.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnReport.Location = new System.Drawing.Point(6, 80);
+            this.btnReport.Location = new System.Drawing.Point(6, 116);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(173, 50);
             this.btnReport.TabIndex = 9;
@@ -196,10 +224,6 @@
             this.lbId.TabIndex = 8;
             this.lbId.Text = "-";
             // 
-            // bsUser
-            // 
-            this.bsUser.DataSource = typeof(CR.Entities.DTO.UserDTO);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -214,7 +238,7 @@
             this.btnCloseCashier.BackColor = System.Drawing.Color.OrangeRed;
             this.btnCloseCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseCashier.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnCloseCashier.Location = new System.Drawing.Point(93, 141);
+            this.btnCloseCashier.Location = new System.Drawing.Point(93, 177);
             this.btnCloseCashier.Name = "btnCloseCashier";
             this.btnCloseCashier.Size = new System.Drawing.Size(86, 50);
             this.btnCloseCashier.TabIndex = 5;
@@ -227,7 +251,7 @@
             this.btnOpenCashier.BackColor = System.Drawing.Color.SpringGreen;
             this.btnOpenCashier.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenCashier.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOpenCashier.Location = new System.Drawing.Point(6, 141);
+            this.btnOpenCashier.Location = new System.Drawing.Point(6, 177);
             this.btnOpenCashier.Name = "btnOpenCashier";
             this.btnOpenCashier.Size = new System.Drawing.Size(86, 50);
             this.btnOpenCashier.TabIndex = 6;
@@ -288,7 +312,7 @@
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(718, 493);
+            this.pnMain.Size = new System.Drawing.Size(718, 513);
             this.pnMain.TabIndex = 0;
             // 
             // frmMain
@@ -296,7 +320,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(920, 518);
+            this.ClientSize = new System.Drawing.Size(920, 538);
             this.Controls.Add(this.scMain);
             this.Controls.Add(this.tsMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -344,5 +368,7 @@
         private System.Windows.Forms.ToolStripButton tsbReports;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button btnGastos;
+        private System.Windows.Forms.Label lbCajaEstatus;
+        private System.Windows.Forms.Label label5;
     }
 }

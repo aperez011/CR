@@ -74,6 +74,12 @@
     <Compile Include="Caja\CashCoinAmount.Designer.cs">
       <DependentUpon>CashCoinAmount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Caja\OthersAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caja\OthersAmount.Designer.cs">
+      <DependentUpon>OthersAmount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caja\ucCloseCashier.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +109,18 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gastos\RegisterExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos\RegisterExpense.Designer.cs">
+      <DependentUpon>RegisterExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gastos\ucExpenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gastos\ucExpenses.Designer.cs">
+      <DependentUpon>ucExpenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -139,6 +157,9 @@
     <EmbeddedResource Include="Caja\CashCoinAmount.resx">
       <DependentUpon>CashCoinAmount.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Caja\OthersAmount.resx">
+      <DependentUpon>OthersAmount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caja\ucCloseCashier.resx">
       <DependentUpon>ucCloseCashier.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +174,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos\RegisterExpense.resx">
+      <DependentUpon>RegisterExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos\ucExpenses.resx">
+      <DependentUpon>ucExpenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

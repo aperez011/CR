@@ -56,12 +56,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(248, 151);
+            this.panel1.Size = new System.Drawing.Size(276, 151);
             this.panel1.TabIndex = 0;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(142, 102);
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(152, 102);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(97, 31);
             this.btnCancel.TabIndex = 15;
@@ -71,7 +72,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(14, 102);
+            this.btnOk.Location = new System.Drawing.Point(24, 102);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(97, 31);
             this.btnOk.TabIndex = 14;
@@ -83,7 +84,7 @@
             // 
             this.lbMonto.AutoSize = true;
             this.lbMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonto.Location = new System.Drawing.Point(180, 18);
+            this.lbMonto.Location = new System.Drawing.Point(190, 18);
             this.lbMonto.Name = "lbMonto";
             this.lbMonto.Size = new System.Drawing.Size(14, 20);
             this.lbMonto.TabIndex = 13;
@@ -93,7 +94,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(109, 20);
+            this.label3.Location = new System.Drawing.Point(119, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 12;
@@ -101,7 +102,7 @@
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(14, 67);
+            this.txtAmount.Location = new System.Drawing.Point(24, 67);
             this.txtAmount.MaxLength = 18;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(225, 20);
@@ -112,7 +113,7 @@
             // lbTipo
             // 
             this.lbTipo.AutoSize = true;
-            this.lbTipo.Location = new System.Drawing.Point(11, 51);
+            this.lbTipo.Location = new System.Drawing.Point(21, 51);
             this.lbTipo.Name = "lbTipo";
             this.lbTipo.Size = new System.Drawing.Size(100, 13);
             this.lbTipo.TabIndex = 10;
@@ -122,7 +123,7 @@
             // 
             this.lbCoin.AutoSize = true;
             this.lbCoin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCoin.Location = new System.Drawing.Point(50, 17);
+            this.lbCoin.Location = new System.Drawing.Point(60, 17);
             this.lbCoin.Name = "lbCoin";
             this.lbCoin.Size = new System.Drawing.Size(15, 20);
             this.lbCoin.TabIndex = 9;
@@ -132,7 +133,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 17);
+            this.label1.Location = new System.Drawing.Point(20, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 8;
@@ -149,7 +150,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(248, 151);
+            this.ClientSize = new System.Drawing.Size(276, 151);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

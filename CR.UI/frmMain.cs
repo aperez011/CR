@@ -1,5 +1,6 @@
 ﻿using CR.UI.Caja;
 using CR.UI.Config;
+using CR.UI.Gastos;
 using CR.UI.Login;
 using CR.UI.Reporte;
 using CR.Utilities;
@@ -61,7 +62,6 @@ namespace CR.UI
 
         private void btnOpenCashier_Click(object sender, EventArgs e)
         {
-            this.CloseControl();
 
             var date = DateTime.Now.Date;
             var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
@@ -81,6 +81,8 @@ namespace CR.UI
                 }
             }
 
+            this.CloseControl();
+
             var openCashier = new ucOpenCashier(this, _coinServices, _cashRegisterServices);
             pnMain.Controls.Add(openCashier);
         }
@@ -95,8 +97,6 @@ namespace CR.UI
 
         private void btnCloseCashier_Click(object sender, EventArgs e)
         {
-            this.CloseControl();
-
             var date = DateTime.Now.Date;
             var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
 
@@ -120,6 +120,8 @@ namespace CR.UI
                 }
             }
 
+            this.CloseControl();
+
             var openCashier = new ucCloseCashier(this, _coinServices, _cashRegisterServices);
             pnMain.Controls.Add(openCashier);
         }
@@ -129,6 +131,12 @@ namespace CR.UI
             var report = new frmReporteCaja();
 
             report.ShowDialog();
+        }
+
+        private void btnGastos_Click(object sender, EventArgs e)
+        {
+            var expense = new ucExpenses();
+            pnMain.Controls.Add(expense);
         }
     }
 }

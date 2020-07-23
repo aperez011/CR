@@ -19,7 +19,7 @@ namespace CR.Data
             this.Property(t => t.CashRegisterId);
             this.Property(t => t.CoinId);
             this.Property(t => t.CoinAmount);
-            this.Property(t => t.RefNUmber);
+            this.Property(t => t.RefNumber);
             this.Property(t => t.TotalAmount);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);

@@ -94,7 +94,7 @@ namespace CR.UI.Caja
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!this.Validate()) return;
+            if (!this.ValidateInfo()) return;
 
             var resul = _cashRegisterServices.Create(_cashRegister);
 
@@ -104,7 +104,7 @@ namespace CR.UI.Caja
                 return;
             }
 
-            MessageBox.Show($"La apertura de caja ha sido creada exitosamente", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"La apertura de caja ha sido creada exitosamente.", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _frm.CloseControl();
         }
 
@@ -213,7 +213,7 @@ namespace CR.UI.Caja
             _frm.CloseControl();
         }
 
-        private bool Validate()
+        private bool ValidateInfo()
         {
             if (!_cashRegister.Details.Any())
             {

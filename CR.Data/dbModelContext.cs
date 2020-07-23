@@ -25,6 +25,7 @@ namespace CR.Data
         public DbSet<Coin> Coins { get; set; }
         public DbSet<CashRegister> CashRegisters { get; set; }
         public DbSet<CashRegisterDetails> CashRegisterDetails { get; set; }
+        public DbSet<CashExpense> CashExpenses { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,7 +33,9 @@ namespace CR.Data
             modelBuilder.Configurations.Add(new CoinAdapter());
             modelBuilder.Configurations.Add(new CashRegisterAdapter());
             modelBuilder.Configurations.Add(new CashRegisterDetailsAdapter());
+            modelBuilder.Configurations.Add(new CashExpenseAdapter());
 
+            //Cash register relation
             modelBuilder.Entity<CashRegister>()
                         .HasMany<CashRegisterDetails>(g => g.Details)
                         .WithRequired(s => s.CashRegister)

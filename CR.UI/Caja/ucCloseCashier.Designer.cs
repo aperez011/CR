@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.scMain = new System.Windows.Forms.SplitContainer();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pnCenter = new System.Windows.Forms.Panel();
-            this.gbCardsAndCredits = new System.Windows.Forms.GroupBox();
-            this.gbCashCoins = new System.Windows.Forms.GroupBox();
-            this.gbDetails = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.lbMontoTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.gbDetails = new System.Windows.Forms.GroupBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.gbCardsAndCredits = new System.Windows.Forms.GroupBox();
+            this.gbCashCoins = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
@@ -53,22 +53,9 @@
             // scMain.Panel2
             // 
             this.scMain.Panel2.Controls.Add(this.pnCenter);
-            this.scMain.Size = new System.Drawing.Size(712, 487);
-            this.scMain.SplitterDistance = 25;
+            this.scMain.Size = new System.Drawing.Size(712, 520);
+            this.scMain.SplitterDistance = 26;
             this.scMain.TabIndex = 1;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(450, 342);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(252, 52);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // pnCenter
             // 
@@ -83,8 +70,63 @@
             this.pnCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnCenter.Location = new System.Drawing.Point(0, 0);
             this.pnCenter.Name = "pnCenter";
-            this.pnCenter.Size = new System.Drawing.Size(712, 458);
+            this.pnCenter.Size = new System.Drawing.Size(712, 490);
             this.pnCenter.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExit.Location = new System.Drawing.Point(469, 419);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(233, 52);
+            this.btnExit.TabIndex = 6;
+            this.btnExit.Text = "SALIR";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // lbMontoTotal
+            // 
+            this.lbMontoTotal.AutoSize = true;
+            this.lbMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMontoTotal.Location = new System.Drawing.Point(574, 254);
+            this.lbMontoTotal.Name = "lbMontoTotal";
+            this.lbMontoTotal.Size = new System.Drawing.Size(20, 24);
+            this.lbMontoTotal.TabIndex = 5;
+            this.lbMontoTotal.Text = "_";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(465, 254);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 24);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Monto Total:";
+            // 
+            // gbDetails
+            // 
+            this.gbDetails.Location = new System.Drawing.Point(13, 247);
+            this.gbDetails.Name = "gbDetails";
+            this.gbDetails.Size = new System.Drawing.Size(450, 224);
+            this.gbDetails.TabIndex = 2;
+            this.gbDetails.TabStop = false;
+            this.gbDetails.Text = "Detalles";
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(469, 356);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(233, 52);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // gbCardsAndCredits
             // 
@@ -104,55 +146,13 @@
             this.gbCashCoins.TabStop = false;
             this.gbCashCoins.Text = "Billetes";
             // 
-            // gbDetails
-            // 
-            this.gbDetails.Location = new System.Drawing.Point(13, 247);
-            this.gbDetails.Name = "gbDetails";
-            this.gbDetails.Size = new System.Drawing.Size(429, 205);
-            this.gbDetails.TabIndex = 2;
-            this.gbDetails.TabStop = false;
-            this.gbDetails.Text = "Detalles";
-            // 
-            // lbMontoTotal
-            // 
-            this.lbMontoTotal.AutoSize = true;
-            this.lbMontoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMontoTotal.Location = new System.Drawing.Point(587, 256);
-            this.lbMontoTotal.Name = "lbMontoTotal";
-            this.lbMontoTotal.Size = new System.Drawing.Size(20, 24);
-            this.lbMontoTotal.TabIndex = 5;
-            this.lbMontoTotal.Text = "_";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(446, 256);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Monto Total RD:";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(450, 400);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(252, 52);
-            this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "SALIR";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // ucCloseCashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.scMain);
             this.Name = "ucCloseCashier";
-            this.Size = new System.Drawing.Size(712, 487);
+            this.Size = new System.Drawing.Size(712, 520);
             this.Load += new System.EventHandler(this.ucCloseCashier_Load);
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();

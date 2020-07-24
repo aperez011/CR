@@ -11,5 +11,13 @@ namespace CR.Entities
         public string UserName { get; set; }
         public string Password { get; set; }
         public Guid UserRol { get; set; }
+
+        //public ICollection<CashExpense> Expenses { get; set; }
+
+
+        public override string ToString()
+        {
+            return this.UserName;
+        }
     }
 }

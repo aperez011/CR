@@ -24,6 +24,7 @@ namespace CR.Data
             this.Property(t => t.IsActive);
             this.Property(t => t.LogDate);
 
+
         }
     }
 }

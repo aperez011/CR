@@ -48,6 +48,7 @@
     <Compile Include="Enums\UserRoles.cs" />
     <Compile Include="ExtentionMethods.cs" />
     <Compile Include="Infraestructure\IBaseMethods.cs" />
+    <Compile Include="Infraestructure\ICashExpenseServices.cs" />
     <Compile Include="Infraestructure\ICashRegisterServices.cs" />
     <Compile Include="Infraestructure\ICoinServices.cs" />
     <Compile Include="FormBase.cs">

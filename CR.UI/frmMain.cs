@@ -17,13 +17,18 @@ namespace CR.UI
         private readonly ILoginServices _loginServices;
         private readonly ICoinServices _coinServices;
         private readonly ICashRegisterServices _cashRegisterServices;
+        private readonly ICashExpenseServices _cashExpenseServices;
 
-        public frmMain(ILoginServices loginServices, ICoinServices coinServices, ICashRegisterServices cashRegisterServices)
+        public frmMain(ILoginServices loginServices
+                     , ICoinServices coinServices
+                     , ICashRegisterServices cashRegisterServices
+                     , ICashExpenseServices cashExpenseServices)
         {
             InitializeComponent();
             _loginServices = loginServices;
             _coinServices = coinServices;
             _cashRegisterServices = cashRegisterServices;
+            _cashExpenseServices = cashExpenseServices;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -135,7 +140,7 @@ namespace CR.UI
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            var expense = new ucExpenses();
+            var expense = new ucExpenses(this, _cashExpenseServices);
             pnMain.Controls.Add(expense);
         }
     }

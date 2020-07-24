@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CashExpenseServices.cs" />
     <Compile Include="CashRegisterServices.cs" />
     <Compile Include="CoinServices.cs" />
     <Compile Include="LoginServices.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CR.Data
 {
-    public class CashRegisterAdapter: EntityTypeConfiguration<CashRegister>
+    public class CashRegisterAdapter : EntityTypeConfiguration<CashRegister>
     {
         public CashRegisterAdapter()
         {
@@ -22,7 +22,10 @@ namespace CR.Data
             this.Property(t => t.RegisterType);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);
-            
+
+            this.HasMany<CashRegisterDetails>(g => g.Details)
+                .WithRequired(s => s.CashRegister)
+                .HasForeignKey<int>(s => s.CashRegisterId);
         }
     }
 }

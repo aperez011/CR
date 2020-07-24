@@ -13,11 +13,10 @@ namespace CR.Entities
         public string BillNum { get; set; }
         public decimal BillAmount { get; set; }
 
-        [ForeignKey("User")]
         public int UserId { get; set; }
         public string Reason { get; set; }
         public DateTime LastUpdate { get; set; }
 
-        public virtual User User { get; set; }
+        //public virtual User User { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace CR.Data
             this.Property(t => t.LastUpdate);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);
+
         }
     }
 }

@@ -128,6 +128,8 @@ namespace CR.UI
             this.CloseControl();
 
             var ucReport = new ucCashierReport(this);
+            ucReport.Size = pnMain.Size;
+
             pnMain.Controls.Add(ucReport);
         }
 

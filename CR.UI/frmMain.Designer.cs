@@ -105,20 +105,21 @@
             // tsmiMonedas
             // 
             this.tsmiMonedas.Name = "tsmiMonedas";
-            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
+            this.tsmiMonedas.Size = new System.Drawing.Size(180, 22);
             this.tsmiMonedas.Text = "Monedas";
             this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
             // 
             // tsmiUsuarios
             // 
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(123, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(180, 22);
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // scMain
             // 
             this.scMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scMain.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.scMain.IsSplitterFixed = true;
             this.scMain.Location = new System.Drawing.Point(0, 25);
             this.scMain.Name = "scMain";

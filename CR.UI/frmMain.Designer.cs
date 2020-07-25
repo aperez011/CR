@@ -39,6 +39,7 @@
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Panel();
             this.lbCajaEstatus = new System.Windows.Forms.Label();
             this.bsUser = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
@@ -146,6 +147,7 @@
             // 
             // gbUserInfo
             // 
+            this.gbUserInfo.Controls.Add(this.btnExit);
             this.gbUserInfo.Controls.Add(this.lbCajaEstatus);
             this.gbUserInfo.Controls.Add(this.label5);
             this.gbUserInfo.Controls.Add(this.btnGastos);
@@ -164,6 +166,16 @@
             this.gbUserInfo.TabIndex = 1;
             this.gbUserInfo.TabStop = false;
             this.gbUserInfo.Text = "Informacion de Usuario";
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackgroundImage = global::CR.UI.Properties.Resources._1333204267_Log_Out;
+            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExit.Location = new System.Drawing.Point(139, 305);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(40, 41);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lbCajaEstatus
             // 
@@ -328,6 +340,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuadre de caja";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();
@@ -370,5 +383,6 @@
         private System.Windows.Forms.Button btnGastos;
         private System.Windows.Forms.Label lbCajaEstatus;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel btnExit;
     }
 }

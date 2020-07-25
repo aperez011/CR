@@ -92,14 +92,6 @@ namespace CR.UI
             pnMain.Controls.Add(openCashier);
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            this.CloseControl();
-
-            var ucReport = new ucCashierReport(this);
-            pnMain.Controls.Add(ucReport);
-        }
-
         private void btnCloseCashier_Click(object sender, EventArgs e)
         {
             var date = DateTime.Now.Date;
@@ -131,6 +123,14 @@ namespace CR.UI
             pnMain.Controls.Add(openCashier);
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            this.CloseControl();
+
+            var ucReport = new ucCashierReport(this);
+            pnMain.Controls.Add(ucReport);
+        }
+
         private void tsbReports_Click(object sender, EventArgs e)
         {
             var report = new frmReporteCaja();
@@ -140,8 +140,27 @@ namespace CR.UI
 
         private void btnGastos_Click(object sender, EventArgs e)
         {
-            var expense = new ucExpenses(this, _cashExpenseServices);
+            this.CloseControl();
+
+            var expense = new ucExpenses(this, _cashExpenseServices, _loginServices);
             pnMain.Controls.Add(expense);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Esta seguro que desea salir?","Motificación",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Cancel) return;
+
+            Application.Exit();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Esta seguro que desea salir?", "Motificación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Cancel) e.Cancel = true;
+
         }
     }
 }

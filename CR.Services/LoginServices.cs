@@ -1,6 +1,8 @@
 ﻿using CR.Data;
 using CR.Entities;
+using CR.Entities.DTO;
 using CR.Utilities;
+using CR.Utilities.Enums;
 using CR.Utilities.Infraestructure;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,30 @@ namespace CR.Services
 
         public LoginServices()
         {
+        }
+
+        public OperationResult<IEnumerable<UserDTO>> GetUsers()
+        {
+            try
+            {
+                IEnumerable<UserDTO> result;
+
+                using (_context = new dbModelContext())
+                {
+                    var users = _context.User.Select(c => c).ToList();
+
+                    result = users.Select(us => new UserDTO { Id = us.Id
+                                                            , UserName = us.UserName
+                                                            , Rol = ExtentionMethods.GetValueFromDescription<UserRoles>(us.UserRol.ToString()).ToString() 
+                                                            }).ToList();
+                }
+
+                return OperationResult<IEnumerable<UserDTO>>.SetSucces(result);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public OperationResult<User> Login(string userName, string password)
@@ -116,5 +142,6 @@ namespace CR.Services
                 throw;
             }
         }
+
     }
 }

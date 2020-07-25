@@ -12,11 +12,14 @@ namespace CR.UI.Gastos
     public partial class ucExpenses : UserControl
     {
         private readonly ICashExpenseServices _cashExpenseServices;
+        private readonly ILoginServices _loginServices;
         private FormBase _frm;
-        public ucExpenses(FormBase frm, ICashExpenseServices cashExpenseServices)
+
+        public ucExpenses(FormBase frm, ICashExpenseServices cashExpenseServices, ILoginServices loginServices)
         {
             InitializeComponent();
             _cashExpenseServices = cashExpenseServices;
+            _loginServices = loginServices;
             _frm = frm;
         }
 
@@ -97,6 +100,8 @@ namespace CR.UI.Gastos
 
                     pnPorUsuario.Location = new Point(358, 3);
                     pnPorUsuario.Visible = true;
+
+                    this.LoadUser();
                     break;
                 default:
                     break;
@@ -106,6 +111,45 @@ namespace CR.UI.Gastos
         private void btnReset_Click(object sender, EventArgs e)
         {
             this.Refesh();
+        }
+
+        private void btnSearchByDate_Click(object sender, EventArgs e)
+        {
+            if (dtpDesde.Value.Date > dtpHasta.Value.Date)
+            {
+                MessageBox.Show("La fecha Desde no puede ser mayor a la fecha Hasta.", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var desde = dtpDesde.Value.Date;
+            var hasta = dtpHasta.Value.Date;
+
+            var result = _cashExpenseServices.FindBy(c => c.RegisterDate >= desde && c.RegisterDate <= hasta);
+
+            if (!result.Success)
+            {
+                MessageBox.Show($"Ha ocurrido un error al realizar la busqueda de los gastos. Error '{result.Message}'", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bsCashExpenses.DataSource = result.Data;
+        }
+
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+            dtpHasta.MinDate = dtpDesde.Value.Date;
+        }
+
+        private void dtpHasta_ValueChanged(object sender, EventArgs e)
+        {
+            dtpDesde.MaxDate = dtpHasta.Value.Date;
+        }
+
+        private void LoadUser()
+        {
+            var users = _loginServices.GetUsers();
+
+            if (users.Success) bsUsers.DataSource = users.Data;
         }
     }
 }

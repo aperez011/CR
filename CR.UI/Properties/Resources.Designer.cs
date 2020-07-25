@@ -63,6 +63,16 @@ namespace CR.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1333204267_Log_Out {
+            get {
+                object obj = ResourceManager.GetObject("1333204267_Log Out", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap decision {
             get {
                 object obj = ResourceManager.GetObject("decision", resourceCulture);

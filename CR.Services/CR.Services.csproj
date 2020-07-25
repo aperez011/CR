@@ -56,6 +56,7 @@
     <Compile Include="CoinServices.cs" />
     <Compile Include="LoginServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CR.Data\CR.Data.csproj">

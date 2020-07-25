@@ -50,7 +50,9 @@
     <Compile Include="CashRegisterDetails.cs" />
     <Compile Include="CashRelation.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="DTO\CashierReportDTO.cs" />
     <Compile Include="DTO\CoinsDTO.cs" />
+    <Compile Include="DTO\ReportDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

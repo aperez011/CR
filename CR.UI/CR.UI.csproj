@@ -204,6 +204,8 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CR.Entities.CashExpense.datasource" />
     <None Include="Properties\DataSources\CR.Entities.CashRegisterDetails.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.DTO.BalanceDetails.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.DTO.CashierReportDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CoinsDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.UserDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.User.datasource" />

@@ -32,6 +32,7 @@ namespace CR.UI
             _con.Register<ICoinServices, CoinServices>();
             _con.Register<ICashRegisterServices, CashRegisterServices>();
             _con.Register<ICashExpenseServices, CashExpenseServices>();
+            _con.Register<IReportServices, ReportServices>();
 
             _con.Verify();
         }

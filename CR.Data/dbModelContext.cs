@@ -10,15 +10,10 @@ namespace CR.Data
 {
     public class dbModelContext : DbContext
     {
-        static dbModelContext()
-        {
-            Database.SetInitializer<dbModelContext>(null);
-        }
-
         public dbModelContext()
             : base("Name=dbCashRegister")
         {
-
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<User> User { get; set; }
@@ -37,17 +32,11 @@ namespace CR.Data
             modelBuilder.Configurations.Add(new CashExpenseAdapter());
             modelBuilder.Configurations.Add(new CashRelationAdapter());
 
-            ////Cash register relation
-            //modelBuilder.Entity<CashRegister>()
-            //            .HasMany<CashRegisterDetails>(g => g.Details)
-            //            .WithRequired(s => s.CashRegister)
-            //            .HasForeignKey<int>(s => s.CashRegisterId);
-
-            //Cash Expense register to user
-            //modelBuilder.Entity<User>()
-            //            .HasMany<CashExpense>(g => g.Expenses)
-            //            .WithRequired(s => s.User)
-            //            .HasForeignKey<int>(s => s.UserId);
+            //Cash register relation
+            modelBuilder.Entity<CashRegister>()
+                        .HasMany<CashRegisterDetails>(g => g.Details)
+                        .WithRequired(s => s.CashRegister)
+                        .HasForeignKey<int>(s => s.CashRegisterId);
         }
     }
 }

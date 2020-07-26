@@ -207,6 +207,7 @@
     <None Include="Properties\DataSources\CR.Entities.DTO.BalanceDetails.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CashierReportDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CoinsDTO.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.DTO.DetailDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.UserDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.User.datasource" />
     <None Include="Properties\Settings.settings">

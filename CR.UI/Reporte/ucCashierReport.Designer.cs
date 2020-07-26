@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbBalance = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbOpenAmount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbExpenses = new System.Windows.Forms.Label();
+            this.lbCloseAmount = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dbDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
@@ -70,12 +74,13 @@
             this.llbTransferClose = new System.Windows.Forms.LinkLabel();
             this.llbCreditClose = new System.Windows.Forms.LinkLabel();
             this.bsReportHeader = new System.Windows.Forms.BindingSource(this.components);
-            this.refNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coinAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.logDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsCashRegisterDetails = new System.Windows.Forms.BindingSource(this.components);
             this.bsReportDetail = new System.Windows.Forms.BindingSource(this.components);
+            this.CoinName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coinAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegisterDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
@@ -128,36 +133,38 @@
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
+            this.lbUsuario.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "UserName", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "N/A"));
             this.lbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsuario.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lbUsuario.Location = new System.Drawing.Point(9, 7);
             this.lbUsuario.Name = "lbUsuario";
-            this.lbUsuario.Size = new System.Drawing.Size(87, 17);
+            this.lbUsuario.Size = new System.Drawing.Size(17, 17);
             this.lbUsuario.TabIndex = 4;
-            this.lbUsuario.Text = "ANGEL011";
+            this.lbUsuario.Text = "_";
             // 
             // lbDate
             // 
             this.lbDate.AutoSize = true;
+            this.lbDate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "Date", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "N/A"));
             this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lbDate.Location = new System.Drawing.Point(619, 7);
             this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(90, 17);
+            this.lbDate.Size = new System.Drawing.Size(17, 17);
             this.lbDate.TabIndex = 5;
-            this.lbDate.Text = "24/07/2020";
+            this.lbDate.Text = "_";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lbBalance);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnPrint);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lbOpenAmount);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.lbExpenses);
+            this.groupBox1.Controls.Add(this.lbCloseAmount);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(7, 27);
             this.groupBox1.Name = "groupBox1";
@@ -166,17 +173,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion General";
             // 
-            // label8
+            // lbBalance
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "CashBalance", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(196, 77);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 15);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "_";
+            this.lbBalance.BackColor = System.Drawing.Color.Transparent;
+            this.lbBalance.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "CashBalance", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
+            this.lbBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBalance.Location = new System.Drawing.Point(196, 77);
+            this.lbBalance.Name = "lbBalance";
+            this.lbBalance.Size = new System.Drawing.Size(126, 21);
+            this.lbBalance.TabIndex = 19;
+            this.lbBalance.Text = "_";
+            this.lbBalance.TextChanged += new System.EventHandler(this.lbBalance_TextChanged);
             // 
             // btnCancel
             // 
@@ -245,30 +252,30 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Moton Total de Cierre:";
             // 
-            // label6
+            // lbExpenses
             // 
-            this.label6.AutoSize = true;
-            this.label6.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsReportHeader, "ExpensesAmount", true));
-            this.label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "ExpensesAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label6.Location = new System.Drawing.Point(196, 32);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "_";
+            this.lbExpenses.AutoSize = true;
+            this.lbExpenses.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.bsReportHeader, "ExpensesAmount", true));
+            this.lbExpenses.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "ExpensesAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
+            this.lbExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbExpenses.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbExpenses.Location = new System.Drawing.Point(196, 32);
+            this.lbExpenses.Name = "lbExpenses";
+            this.lbExpenses.Size = new System.Drawing.Size(15, 15);
+            this.lbExpenses.TabIndex = 17;
+            this.lbExpenses.Text = "_";
             // 
-            // label4
+            // lbCloseAmount
             // 
-            this.label4.AutoSize = true;
-            this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "CloseAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label4.Location = new System.Drawing.Point(6, 77);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(15, 15);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "_";
+            this.lbCloseAmount.AutoSize = true;
+            this.lbCloseAmount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsReportHeader, "CloseAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "$ 0.00", "C2"));
+            this.lbCloseAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCloseAmount.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbCloseAmount.Location = new System.Drawing.Point(6, 77);
+            this.lbCloseAmount.Name = "lbCloseAmount";
+            this.lbCloseAmount.Size = new System.Drawing.Size(15, 15);
+            this.lbCloseAmount.TabIndex = 15;
+            this.lbCloseAmount.Text = "_";
             // 
             // label7
             // 
@@ -298,10 +305,11 @@
             this.dgvDetails.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.refNumberDataGridViewTextBoxColumn,
-            this.coinAmountDataGridViewTextBoxColumn,
+            this.CoinName,
+            this.RefNum,
             this.totalAmountDataGridViewTextBoxColumn,
-            this.logDateDataGridViewTextBoxColumn});
+            this.coinAmountDataGridViewTextBoxColumn,
+            this.RegisterDate});
             this.dgvDetails.DataSource = this.bsCashRegisterDetails;
             this.dgvDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDetails.Location = new System.Drawing.Point(3, 16);
@@ -613,13 +621,45 @@
             // 
             this.bsReportHeader.DataSource = typeof(CR.Entities.DTO.CashierReportDTO);
             // 
-            // refNumberDataGridViewTextBoxColumn
+            // bsCashRegisterDetails
             // 
-            this.refNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.refNumberDataGridViewTextBoxColumn.DataPropertyName = "RefNumber";
-            this.refNumberDataGridViewTextBoxColumn.HeaderText = "Numero de Referencia";
-            this.refNumberDataGridViewTextBoxColumn.Name = "refNumberDataGridViewTextBoxColumn";
-            this.refNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bsCashRegisterDetails.DataSource = typeof(CR.Entities.DTO.DetailDTO);
+            // 
+            // bsReportDetail
+            // 
+            this.bsReportDetail.DataSource = typeof(CR.Entities.DTO.BalanceDetails);
+            // 
+            // CoinName
+            // 
+            this.CoinName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CoinName.DataPropertyName = "CoinName";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "N/A";
+            this.CoinName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CoinName.HeaderText = "Moneda";
+            this.CoinName.Name = "CoinName";
+            this.CoinName.ReadOnly = true;
+            // 
+            // RefNum
+            // 
+            this.RefNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RefNum.DataPropertyName = "RefNum";
+            dataGridViewCellStyle2.NullValue = "NONE";
+            this.RefNum.DefaultCellStyle = dataGridViewCellStyle2;
+            this.RefNum.HeaderText = "Numero de Referencia";
+            this.RefNum.Name = "RefNum";
+            this.RefNum.ReadOnly = true;
+            // 
+            // totalAmountDataGridViewTextBoxColumn
+            // 
+            this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "-";
+            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // coinAmountDataGridViewTextBoxColumn
             // 
@@ -629,29 +669,16 @@
             this.coinAmountDataGridViewTextBoxColumn.Name = "coinAmountDataGridViewTextBoxColumn";
             this.coinAmountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // totalAmountDataGridViewTextBoxColumn
+            // RegisterDate
             // 
-            this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
-            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
-            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // logDateDataGridViewTextBoxColumn
-            // 
-            this.logDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.logDateDataGridViewTextBoxColumn.DataPropertyName = "LogDate";
-            this.logDateDataGridViewTextBoxColumn.HeaderText = "Fecha";
-            this.logDateDataGridViewTextBoxColumn.Name = "logDateDataGridViewTextBoxColumn";
-            this.logDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bsCashRegisterDetails
-            // 
-            this.bsCashRegisterDetails.DataSource = typeof(CR.Entities.CashRegisterDetails);
-            // 
-            // bsReportDetail
-            // 
-            this.bsReportDetail.DataSource = typeof(CR.Entities.DTO.BalanceDetails);
+            this.RegisterDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RegisterDate.DataPropertyName = "RegisterDate";
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy h:MM:ss tt";
+            dataGridViewCellStyle4.NullValue = "N/A";
+            this.RegisterDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.RegisterDate.HeaderText = "Fecha de Registro";
+            this.RegisterDate.Name = "RegisterDate";
+            this.RegisterDate.ReadOnly = true;
             // 
             // ucCashierReport
             // 
@@ -692,11 +719,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbBalance;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbExpenses;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbCloseAmount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbOpenAmount;
         private System.Windows.Forms.Label label3;
@@ -717,10 +744,6 @@
         private System.Windows.Forms.LinkLabel llbCardOpen;
         private System.Windows.Forms.GroupBox dbDetalles;
         private System.Windows.Forms.DataGridView dgvDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn refNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn coinAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn logDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource bsCashRegisterDetails;
         private System.Windows.Forms.LinkLabel llbCashOpen;
         private System.Windows.Forms.Label label14;
@@ -734,5 +757,10 @@
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.BindingSource bsReportHeader;
         private System.Windows.Forms.BindingSource bsReportDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoinName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn coinAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegisterDate;
     }
 }

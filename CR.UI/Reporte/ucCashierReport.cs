@@ -10,17 +10,22 @@ using System.Windows.Forms;
 using CR.Utilities;
 using CR.Entities.DTO;
 using CR.Utilities.Enums;
+using CR.Utilities.Infraestructure;
+using System.Globalization;
 
 namespace CR.UI.Reporte
 {
     public partial class ucCashierReport : UserControl
     {
         private readonly FormBase _frm;
+        private readonly IReportServices _reportServices;
+        private ReportDTO reportData;
 
-        public ucCashierReport(FormBase frm)
+        public ucCashierReport(FormBase frm, IReportServices reportServices)
         {
             InitializeComponent();
             _frm = frm;
+            _reportServices = reportServices;
         }
 
         private void ucCashierReport_Load(object sender, EventArgs e)
@@ -58,14 +63,18 @@ namespace CR.UI.Reporte
         private void llbCards_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var llbBTN = (LinkLabel)sender;
+            string coinType = CoinsType.Tarjeta.GetDescription();
+            string registerType = string.Empty;
 
             switch (llbBTN.Name)
             {
                 case "llbCardOpen":
-                    var test = 1;
+                    registerType = CashRegisterTypes.Apertura.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 case "llbCardClose":
-                    var test1 = 2;
+                    registerType = CashRegisterTypes.Cierre.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 default:
                     break;
@@ -75,14 +84,18 @@ namespace CR.UI.Reporte
         private void llbTransfer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var llbBTN = (LinkLabel)sender;
+            string coinType = CoinsType.Transferencia.GetDescription();
+            string registerType = string.Empty;
 
             switch (llbBTN.Name)
             {
                 case "llbTransferOpen":
-                    var test = 1;
+                    registerType = CashRegisterTypes.Apertura.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 case "llbTransferClose":
-                    var test1 = 2;
+                    registerType = CashRegisterTypes.Cierre.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 default:
                     break;
@@ -92,14 +105,18 @@ namespace CR.UI.Reporte
         private void llbDeposit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var llbBTN = (LinkLabel)sender;
+            string coinType = CoinsType.Deposito.GetDescription();
+            string registerType = string.Empty;
 
             switch (llbBTN.Name)
             {
                 case "llbDepositOpen":
-                    var test = 1;
+                    registerType = CashRegisterTypes.Apertura.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 case "llbDepositClose":
-                    var test1 = 2;
+                    registerType = CashRegisterTypes.Cierre.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 default:
                     break;
@@ -109,14 +126,18 @@ namespace CR.UI.Reporte
         private void llbCredits_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var llbBTN = (LinkLabel)sender;
+            string coinType = CoinsType.Credito.GetDescription();
+            string registerType = string.Empty;
 
             switch (llbBTN.Name)
             {
                 case "llbCreditOpen":
-                    var test = 1;
+                    registerType = CashRegisterTypes.Apertura.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 case "llbCreditClose":
-                    var test1 = 2;
+                    registerType = CashRegisterTypes.Cierre.GetDescription();
+                    this.Details(coinType, registerType);
                     break;
                 default:
                     break;
@@ -125,13 +146,46 @@ namespace CR.UI.Reporte
 
         private void Details(string coinType, string resgisterType)
         {
+            var cType = Guid.Parse(coinType);
+            var rType = Guid.Parse(resgisterType);
 
+            var result = reportData.DetailResume.Details.Where(c => c.RegisterType == rType && c.CoinType == cType);
+
+            bsCashRegisterDetails.DataSource = result;
         }
 
         private void LoadReport()
         {
-            bsReportHeader.DataSource = new CashierReportDTO();
-            bsReportDetail.DataSource = new BalanceDetails();
+
+            var result = _reportServices.GetReportBy(StaticProperties.User.Id, DateTime.Now.Date);
+
+            if (result.Success)
+            {
+                reportData = result.Data;
+                bsReportHeader.DataSource = result.Data.Header;
+                bsReportDetail.DataSource = result.Data.DetailResume;
+            }
+            else
+            {
+                bsReportHeader.DataSource = new CashierReportDTO();
+                bsReportDetail.DataSource = new BalanceDetails();
+            }
+        }
+
+        private void lbBalance_TextChanged(object sender, EventArgs e)
+        {
+            var value = lbBalance.Text;
+            if (value != string.Empty)
+            {
+                if (decimal.Parse(value, NumberStyles.Currency) < 0)
+                {
+                    lbBalance.BackColor = Color.OrangeRed;
+                }
+                else if (decimal.Parse(value, NumberStyles.Currency) > 0)
+                {
+                    lbBalance.BackColor = Color.LimeGreen;
+                }
+            }
         }
     }
 }

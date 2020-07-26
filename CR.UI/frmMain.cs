@@ -18,17 +18,20 @@ namespace CR.UI
         private readonly ICoinServices _coinServices;
         private readonly ICashRegisterServices _cashRegisterServices;
         private readonly ICashExpenseServices _cashExpenseServices;
+        private readonly IReportServices _reportServices;
 
         public frmMain(ILoginServices loginServices
                      , ICoinServices coinServices
                      , ICashRegisterServices cashRegisterServices
-                     , ICashExpenseServices cashExpenseServices)
+                     , ICashExpenseServices cashExpenseServices
+                     , IReportServices reportServices)
         {
             InitializeComponent();
             _loginServices = loginServices;
             _coinServices = coinServices;
             _cashRegisterServices = cashRegisterServices;
             _cashExpenseServices = cashExpenseServices;
+            _reportServices = reportServices;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -127,7 +130,7 @@ namespace CR.UI
         {
             this.CloseControl();
 
-            var ucReport = new ucCashierReport(this);
+            var ucReport = new ucCashierReport(this, _reportServices);
             ucReport.Size = pnMain.Size;
 
             pnMain.Controls.Add(ucReport);

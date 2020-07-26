@@ -105,14 +105,14 @@
             // tsmiMonedas
             // 
             this.tsmiMonedas.Name = "tsmiMonedas";
-            this.tsmiMonedas.Size = new System.Drawing.Size(180, 22);
+            this.tsmiMonedas.Size = new System.Drawing.Size(123, 22);
             this.tsmiMonedas.Text = "Monedas";
             this.tsmiMonedas.Click += new System.EventHandler(this.tsmiMonedas_Click);
             // 
             // tsmiUsuarios
             // 
             this.tsmiUsuarios.Name = "tsmiUsuarios";
-            this.tsmiUsuarios.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUsuarios.Size = new System.Drawing.Size(123, 22);
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -223,7 +223,7 @@
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(173, 50);
             this.btnReport.TabIndex = 9;
-            this.btnReport.Text = "VER REPORTE";
+            this.btnReport.Text = "REPORTE DIARIO";
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 

@@ -36,6 +36,7 @@ namespace CR.UI.Caja
 
             _cashRegister = new CashRegister
             {
+                ShiftId = _cashRegisterServices.GetNumberToOpenTurn(),
                 CashierId = StaticProperties.User.Id,
                 DateRegister = DateTime.Now.Date,
                 RegisterType = Guid.Parse(CashRegisterTypes.Apertura.GetDescription()),

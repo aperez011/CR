@@ -176,6 +176,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(40, 41);
             this.btnExit.TabIndex = 13;
+            this.btnExit.Tag = "Log Out";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lbCajaEstatus

@@ -8,19 +8,18 @@ using System.Threading.Tasks;
 
 namespace CR.Data
 {
-    public class CashRegisterAdapter : EntityTypeConfiguration<CashRegister>
+    public class CategoryAdapter : EntityTypeConfiguration<Category>
     {
-        public CashRegisterAdapter()
+        public CategoryAdapter()
         {
             this.HasKey(t => t.Id);
 
-            this.ToTable("CashRegister");
+            this.ToTable("Categories");
             this.Property(t => t.Id);
-            this.Property(t => t.ShiftId);
-            this.Property(t => t.DateRegister);
-            this.Property(t => t.CashierId);
-            this.Property(t => t.TotalAmount);
-            this.Property(t => t.RegisterType);
+            this.Property(t => t.Code);
+            this.Property(t => t.Name);
+            this.Property(t => t.Description);
+            this.Property(t => t.Owner);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);
         }

@@ -70,23 +70,10 @@ namespace CR.UI
 
         private void btnOpenCashier_Click(object sender, EventArgs e)
         {
-
-            var date = DateTime.Now.Date;
-            var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
-
-            if (cajaEstado.Success)
+            if (_cashRegisterServices.ValidateOpenTurn(StaticProperties.User.Id))
             {
-                var data = cajaEstado.Data;
-
-                var open = data.Count(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Apertura.GetDescription()));
-                var close = data.Count(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Cierre.GetDescription()));
-
-
-                if (open != close)
-                {
-                    MessageBox.Show("La caja ya ha sido aperturada", "Notficación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                MessageBox.Show("Este usuario ya posee un turno abierto, favor cerrar antes de proseguir.", "Notficación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             this.CloseControl();
@@ -97,27 +84,12 @@ namespace CR.UI
 
         private void btnCloseCashier_Click(object sender, EventArgs e)
         {
-            var date = DateTime.Now.Date;
-            var cajaEstado = _cashRegisterServices.FindBy(c => c.CashierId == StaticProperties.User.Id && c.DateRegister == date);
+            var turnOpen = _cashRegisterServices.ValidateOpenTurn(StaticProperties.User.Id);
 
-            if (cajaEstado.Success)
+            if (!turnOpen)
             {
-                var data = cajaEstado.Data;
-
-                var open = data.Count(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Apertura.GetDescription()));
-                var close = data.Count(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Cierre.GetDescription()));
-
-                if (open == 0)
-                {
-                    MessageBox.Show("Debe aperturada la caja", "Notficación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                if (open == close)
-                {
-                    MessageBox.Show("La caja ya ha sido cerrada", "Notficación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                MessageBox.Show("Debe tener un turno abierto antes de cerrar la caja.", "Notficación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             this.CloseControl();
@@ -153,11 +125,11 @@ namespace CR.UI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Esta seguro que desea salir?","Motificación",MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var result = MessageBox.Show("Esta seguro que desea salir?", "Motificación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.Cancel) return;
 
-            Application.Exit();
+            Application.Restart();
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

@@ -9,5 +9,9 @@ namespace CR.Utilities.Infraestructure
 {
     public interface ICashRegisterServices : IBaseMethods<CashRegister>
     {
+
+        int GetNumberToOpenTurn();
+        int GetNumberToCloseTurn(int userId);
+        bool ValidateOpenTurn(int UserId);
     }
 }

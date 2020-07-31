@@ -33,6 +33,7 @@ namespace CR.UI.Caja
             _cashRegister = new CashRegister
             {
                 CashierId = StaticProperties.User.Id,
+                ShiftId = _cashRegisterServices.GetNumberToCloseTurn(StaticProperties.User.Id),
                 DateRegister = DateTime.Now.Date,
                 RegisterType = Guid.Parse(CashRegisterTypes.Cierre.GetDescription()),
                 LogDate = DateTime.Now,

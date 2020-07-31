@@ -92,6 +92,24 @@
     <Compile Include="Caja\ucOpenCashier.Designer.cs">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Categorias\ucAddCategory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Categorias\ucAddCategory.Designer.cs">
+      <DependentUpon>ucAddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\ucCategories.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Categorias\ucCategories.Designer.cs">
+      <DependentUpon>ucCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias\ucCategoriesDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Categorias\ucCategoriesDetails.Designer.cs">
+      <DependentUpon>ucCategoriesDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config\ucCoinType.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -165,6 +183,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Caja\ucOpenCashier.resx">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\ucAddCategory.resx">
+      <DependentUpon>ucAddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\ucCategories.resx">
+      <DependentUpon>ucCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\ucCategoriesDetails.resx">
+      <DependentUpon>ucCategoriesDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config\ucCoinType.resx">
       <DependentUpon>ucCoinType.cs</DependentUpon>

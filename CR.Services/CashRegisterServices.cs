@@ -47,7 +47,7 @@ namespace CR.Services
 
                 using (_context = new dbModelContext())
                 {
-                    result = _context.CashRegisters.Select(c=>c).ToList();
+                    result = _context.CashRegisters.Select(c => c).ToList();
                 }
 
                 return OperationResult<IEnumerable<CashRegister>>.SetSucces(result);
@@ -91,6 +91,84 @@ namespace CR.Services
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public int GetNumberToOpenTurn()
+        {
+            try
+            {
+                int turnNumber = 0;
+
+                using (_context = new dbModelContext())
+                {
+                    var shifts = _context.CashRegisters.Select(c => c.ShiftId);
+
+                    if (shifts.Any())
+                    {
+                        turnNumber = shifts.Max() + 1;
+                    }
+                    else
+                    {
+                        turnNumber = 1;
+                    }
+                }
+
+                return turnNumber;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+        public int GetNumberToCloseTurn(int userId)
+        {
+            try
+            {
+                int turnNumber;
+
+                var turns = this.FindBy(c => c.CashierId == userId);
+
+                if (!turns.Success) throw new Exception();
+
+                var data = turns.Data.ToList();
+
+                turnNumber = data.GroupBy(g => g.ShiftId)
+                                  .Select(c => new { key = c.Key, cnt = c.Count() })
+                                  .Where(v => v.cnt <= 1).FirstOrDefault().key;
+
+                return turnNumber;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool ValidateOpenTurn(int userId)
+        {
+            try
+            {
+                bool openTurn = false;
+
+                var turns = this.FindBy(c => c.CashierId == userId);
+
+                if (!turns.Success) throw new Exception();
+
+                var data = turns.Data.ToList();
+
+                var result = data.GroupBy(g => g.ShiftId)
+                                   .Select(c => new { key = c.Key, cnt = c.Count() })
+                                   .Where(v => v.cnt <= 1);
+
+                openTurn = result.Any();
+
+                return openTurn;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }

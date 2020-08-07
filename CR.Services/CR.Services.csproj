@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="CashExpenseServices.cs" />
     <Compile Include="CashRegisterServices.cs" />
+    <Compile Include="CategoryServices.cs" />
     <Compile Include="CoinServices.cs" />
     <Compile Include="LoginServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

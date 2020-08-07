@@ -11,26 +11,16 @@ namespace CR.Entities
     {
         public Category()
         {
-            SubCategories = new List<SubCategory>();
+            SubCategories = new HashSet<Category>();
+            LogDate = DateTime.Now;
+            IsActive = true;
         }
 
-        public Guid Code { get; set; }
+        public string Code { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Guid Owner { get; set; }
+        public int? OwnerId { get; set; }
 
-        //[ForeignKey("FK_Category_SubCategory")]
-        public ICollection<SubCategory> SubCategories { get; set; }
-    }
-
-    public class SubCategory : EntityBase
-    {
-
-        public Guid Code { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public Guid Owner { get; set; }
-
-        public virtual Category Category { get; set; }
+        public ICollection<Category> SubCategories { get; set; }
     }
 }

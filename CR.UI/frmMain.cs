@@ -1,4 +1,5 @@
 ﻿using CR.UI.Caja;
+using CR.UI.Categorias;
 using CR.UI.Config;
 using CR.UI.Gastos;
 using CR.UI.Login;
@@ -19,12 +20,14 @@ namespace CR.UI
         private readonly ICashRegisterServices _cashRegisterServices;
         private readonly ICashExpenseServices _cashExpenseServices;
         private readonly IReportServices _reportServices;
+        private readonly ICategoryServices _categoryServices;
 
         public frmMain(ILoginServices loginServices
                      , ICoinServices coinServices
                      , ICashRegisterServices cashRegisterServices
                      , ICashExpenseServices cashExpenseServices
-                     , IReportServices reportServices)
+                     , IReportServices reportServices
+                     , ICategoryServices categoryServices)
         {
             InitializeComponent();
             _loginServices = loginServices;
@@ -32,6 +35,7 @@ namespace CR.UI
             _cashRegisterServices = cashRegisterServices;
             _cashExpenseServices = cashExpenseServices;
             _reportServices = reportServices;
+            _categoryServices = categoryServices;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -138,6 +142,14 @@ namespace CR.UI
 
             if (result == DialogResult.Cancel) e.Cancel = true;
 
+        }
+
+        private void tsmRubros_Click(object sender, EventArgs e)
+        {
+            this.CloseControl();
+
+            var categories = new ucCategories(this, _categoryServices);
+            pnMain.Controls.Add(categories);
         }
     }
 }

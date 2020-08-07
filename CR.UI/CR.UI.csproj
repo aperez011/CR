@@ -92,6 +92,12 @@
     <Compile Include="Caja\ucOpenCashier.Designer.cs">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Categorias\NewSubCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categorias\NewSubCategory.Designer.cs">
+      <DependentUpon>NewSubCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Categorias\ucAddCategory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Caja\ucOpenCashier.resx">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Categorias\NewSubCategory.resx">
+      <DependentUpon>NewSubCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Categorias\ucAddCategory.resx">
       <DependentUpon>ucAddCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,11 +240,13 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CR.Entities.CashExpense.datasource" />
     <None Include="Properties\DataSources\CR.Entities.CashRegisterDetails.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.Category.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.BalanceDetails.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CashierReportDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.CoinsDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.DetailDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.UserDTO.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.SubCategory.datasource" />
     <None Include="Properties\DataSources\CR.Entities.User.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

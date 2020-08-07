@@ -40,11 +40,11 @@ namespace CR.Data
                         .WithRequired(s => s.CashRegister)
                         .HasForeignKey<int>(s => s.CashRegisterId);
 
-            ////Cash register relation
             //modelBuilder.Entity<Category>()
-            //            .HasMany<SubCategory>(g => g.SubCategories)
-            //            .WithRequired(s => s.Category)
-            //            .HasForeignKey<Guid>(s => s.Owner);
+            //            .HasMany(o => o.SubCategories)
+            //            .WithOptional()
+            //            .HasForeignKey(c => c.Id);
+
         }
     }
 }

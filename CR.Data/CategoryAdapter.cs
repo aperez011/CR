@@ -19,7 +19,7 @@ namespace CR.Data
             this.Property(t => t.Code);
             this.Property(t => t.Name);
             this.Property(t => t.Description);
-            this.Property(t => t.Owner);
+            this.Property(t => t.OwnerId);
             this.Property(t => t.LogDate);
             this.Property(t => t.IsActive);
         }

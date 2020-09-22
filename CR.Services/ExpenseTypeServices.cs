@@ -11,55 +11,55 @@ using System.Threading.Tasks;
 
 namespace CR.Services
 {
-    public class CategoryServices : ICategoryServices
+    public class ExpenseTypeServices : ICategoryServices
     {
         private dbModelContext _context;
 
-        public OperationResult<IEnumerable<Category>> FindBy(Expression<Func<Category, bool>> condition)
+        public OperationResult<IEnumerable<ExpenseType>> FindBy(Expression<Func<ExpenseType, bool>> condition)
         {
             try
             {
-                IEnumerable<Category> result;
+                IEnumerable<ExpenseType> result;
 
                 using (_context = new dbModelContext())
                 {
-                    result = _context.Categories.Where(condition).ToList();
+                    result = _context.ExpenseTypes.Where(condition).ToList();
                 }
 
-                return OperationResult<IEnumerable<Category>>.SetSucces(result);
+                return OperationResult<IEnumerable<ExpenseType>>.SetSucces(result);
             }
             catch (Exception ex)
             {
-                return OperationResult<IEnumerable<Category>>.SetFail(ex.Message);
+                return OperationResult<IEnumerable<ExpenseType>>.SetFail(ex.Message);
             }
         }
 
-        public OperationResult<IEnumerable<Category>> GetAll()
+        public OperationResult<IEnumerable<ExpenseType>> GetAll()
         {
             try
             {
-                IEnumerable<Category> result;
+                IEnumerable<ExpenseType> result;
 
                 using (_context = new dbModelContext())
                 {
-                    result = _context.Categories.Select(c => c).ToList();
+                    result = _context.ExpenseTypes.Select(c => c).ToList();
                 }
 
-                return OperationResult<IEnumerable<Category>>.SetSucces(result);
+                return OperationResult<IEnumerable<ExpenseType>>.SetSucces(result);
             }
             catch (Exception ex)
             {
-                return OperationResult<IEnumerable<Category>>.SetFail(ex.Message);
+                return OperationResult<IEnumerable<ExpenseType>>.SetFail(ex.Message);
             }
         }
 
-        public OperationResult Create(Category entity)
+        public OperationResult Create(ExpenseType entity)
         {
             try
             {
                 using (_context = new dbModelContext())
                 {
-                    _context.Categories.Add(entity);
+                    _context.ExpenseTypes.Add(entity);
                     _context.SaveChanges();
                 }
 
@@ -71,7 +71,7 @@ namespace CR.Services
             }
         }
 
-        public OperationResult Update(Category entity)
+        public OperationResult Update(ExpenseType entity)
         {
             throw new NotImplementedException();
         }

@@ -36,6 +36,7 @@
             this.tsConfig = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsmiMonedas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmExpenses = new System.Windows.Forms.ToolStripMenuItem();
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnMenu = new System.Windows.Forms.Panel();
             this.gbUserInfo = new System.Windows.Forms.GroupBox();
@@ -55,7 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userPicture = new System.Windows.Forms.Panel();
             this.pnMain = new System.Windows.Forms.Panel();
-            this.tsmRubros = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
@@ -97,7 +97,7 @@
             this.tsConfig.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiMonedas,
             this.tsmiUsuarios,
-            this.tsmRubros});
+            this.tsmExpenses});
             this.tsConfig.Image = ((System.Drawing.Image)(resources.GetObject("tsConfig.Image")));
             this.tsConfig.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsConfig.Name = "tsConfig";
@@ -117,6 +117,13 @@
             this.tsmiUsuarios.Size = new System.Drawing.Size(180, 22);
             this.tsmiUsuarios.Text = "Usuarios";
             this.tsmiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // tsmExpenses
+            // 
+            this.tsmExpenses.Name = "tsmExpenses";
+            this.tsmExpenses.Size = new System.Drawing.Size(180, 22);
+            this.tsmExpenses.Text = "Tipos de Gastos";
+            this.tsmExpenses.Click += new System.EventHandler(this.tsmRubros_Click);
             // 
             // scMain
             // 
@@ -331,13 +338,6 @@
             this.pnMain.Size = new System.Drawing.Size(718, 513);
             this.pnMain.TabIndex = 0;
             // 
-            // tsmRubros
-            // 
-            this.tsmRubros.Name = "tsmRubros";
-            this.tsmRubros.Size = new System.Drawing.Size(180, 22);
-            this.tsmRubros.Text = "Categorias";
-            this.tsmRubros.Click += new System.EventHandler(this.tsmRubros_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,6 +395,6 @@
         private System.Windows.Forms.Label lbCajaEstatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel btnExit;
-        private System.Windows.Forms.ToolStripMenuItem tsmRubros;
+        private System.Windows.Forms.ToolStripMenuItem tsmExpenses;
     }
 }

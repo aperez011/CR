@@ -82,7 +82,7 @@
     <Compile Include="CashRegisterAdapter.cs" />
     <Compile Include="CashRegisterDetailsAdapter.cs" />
     <Compile Include="CashRelationAdapter.cs" />
-    <Compile Include="CategoryAdapter.cs" />
+    <Compile Include="ExpenseTypesAdapter.cs" />
     <Compile Include="CoinAdapter.cs" />
     <Compile Include="dbModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

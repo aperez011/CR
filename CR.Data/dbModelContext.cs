@@ -22,7 +22,7 @@ namespace CR.Data
         public DbSet<CashRegisterDetails> CashRegisterDetails { get; set; }
         public DbSet<CashRelation> CashRelations { get; set; }
         public DbSet<CashExpense> CashExpenses { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<ExpenseType> ExpenseTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,18 +32,13 @@ namespace CR.Data
             modelBuilder.Configurations.Add(new CashRegisterDetailsAdapter());
             modelBuilder.Configurations.Add(new CashExpenseAdapter());
             modelBuilder.Configurations.Add(new CashRelationAdapter());
-            modelBuilder.Configurations.Add(new CategoryAdapter());
+            modelBuilder.Configurations.Add(new ExpenseTypesAdapter());
 
             //Cash register relation
             modelBuilder.Entity<CashRegister>()
                         .HasMany<CashRegisterDetails>(g => g.Details)
                         .WithRequired(s => s.CashRegister)
                         .HasForeignKey<int>(s => s.CashRegisterId);
-
-            //modelBuilder.Entity<Category>()
-            //            .HasMany(o => o.SubCategories)
-            //            .WithOptional()
-            //            .HasForeignKey(c => c.Id);
 
         }
     }

@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace CR.Entities
 {
-    public class Category : EntityBase
+    public class ExpenseType : EntityBase
     {
-        public Category()
+        public ExpenseType()
         {
-            SubCategories = new HashSet<Category>();
             LogDate = DateTime.Now;
             IsActive = true;
         }
@@ -19,8 +18,5 @@ namespace CR.Entities
         public string Code { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int? OwnerId { get; set; }
-
-        public ICollection<Category> SubCategories { get; set; }
     }
 }

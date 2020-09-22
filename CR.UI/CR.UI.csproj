@@ -92,29 +92,11 @@
     <Compile Include="Caja\ucOpenCashier.Designer.cs">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Categorias\NewSubCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Categorias\NewSubCategory.Designer.cs">
-      <DependentUpon>NewSubCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Categorias\ucAddCategory.cs">
+    <Compile Include="Config\ucExpenseType.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Categorias\ucAddCategory.Designer.cs">
-      <DependentUpon>ucAddCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Categorias\ucCategories.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Categorias\ucCategories.Designer.cs">
-      <DependentUpon>ucCategories.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Categorias\ucCategoriesDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Categorias\ucCategoriesDetails.Designer.cs">
-      <DependentUpon>ucCategoriesDetails.cs</DependentUpon>
+    <Compile Include="Config\ucExpenseType.Designer.cs">
+      <DependentUpon>ucExpenseType.cs</DependentUpon>
     </Compile>
     <Compile Include="Config\ucCoinType.cs">
       <SubType>UserControl</SubType>
@@ -190,17 +172,8 @@
     <EmbeddedResource Include="Caja\ucOpenCashier.resx">
       <DependentUpon>ucOpenCashier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Categorias\NewSubCategory.resx">
-      <DependentUpon>NewSubCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Categorias\ucAddCategory.resx">
-      <DependentUpon>ucAddCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Categorias\ucCategories.resx">
-      <DependentUpon>ucCategories.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Categorias\ucCategoriesDetails.resx">
-      <DependentUpon>ucCategoriesDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Config\ucExpenseType.resx">
+      <DependentUpon>ucExpenseType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config\ucCoinType.resx">
       <DependentUpon>ucCoinType.cs</DependentUpon>
@@ -246,6 +219,7 @@
     <None Include="Properties\DataSources\CR.Entities.DTO.CoinsDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.DetailDTO.datasource" />
     <None Include="Properties\DataSources\CR.Entities.DTO.UserDTO.datasource" />
+    <None Include="Properties\DataSources\CR.Entities.ExpenseType.datasource" />
     <None Include="Properties\DataSources\CR.Entities.SubCategory.datasource" />
     <None Include="Properties\DataSources\CR.Entities.User.datasource" />
     <None Include="Properties\Settings.settings">

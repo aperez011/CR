@@ -1,5 +1,4 @@
 ﻿using CR.UI.Caja;
-using CR.UI.Categorias;
 using CR.UI.Config;
 using CR.UI.Gastos;
 using CR.UI.Login;
@@ -148,8 +147,9 @@ namespace CR.UI
         {
             this.CloseControl();
 
-            var categories = new ucCategories(this, _categoryServices);
-            pnMain.Controls.Add(categories);
+            var expenseType = new ucExpenseType();
+            expenseType.Size = pnMain.Size;
+            pnMain.Controls.Add(expenseType);
         }
     }
 }

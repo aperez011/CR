@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CR.Utilities.Infraestructure
 {
-    public interface ICategoryServices : IBaseMethods<Category>
+    public interface ICategoryServices : IBaseMethods<ExpenseType>
     {
     }
 }

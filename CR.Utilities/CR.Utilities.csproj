@@ -50,7 +50,7 @@
     <Compile Include="Infraestructure\IBaseMethods.cs" />
     <Compile Include="Infraestructure\ICashExpenseServices.cs" />
     <Compile Include="Infraestructure\ICashRegisterServices.cs" />
-    <Compile Include="Infraestructure\ICategoryServices.cs" />
+    <Compile Include="Infraestructure\IExpenseTypesServices.cs" />
     <Compile Include="Infraestructure\ICoinServices.cs" />
     <Compile Include="FormBase.cs">
       <SubType>Form</SubType>

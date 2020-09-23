@@ -19,14 +19,14 @@ namespace CR.UI
         private readonly ICashRegisterServices _cashRegisterServices;
         private readonly ICashExpenseServices _cashExpenseServices;
         private readonly IReportServices _reportServices;
-        private readonly ICategoryServices _categoryServices;
+        private readonly IExpenseTypesServices _expenseTypeServices;
 
         public frmMain(ILoginServices loginServices
                      , ICoinServices coinServices
                      , ICashRegisterServices cashRegisterServices
                      , ICashExpenseServices cashExpenseServices
                      , IReportServices reportServices
-                     , ICategoryServices categoryServices)
+                     , IExpenseTypesServices expenseTypeServices)
         {
             InitializeComponent();
             _loginServices = loginServices;
@@ -34,7 +34,7 @@ namespace CR.UI
             _cashRegisterServices = cashRegisterServices;
             _cashExpenseServices = cashExpenseServices;
             _reportServices = reportServices;
-            _categoryServices = categoryServices;
+            _expenseTypeServices = expenseTypeServices;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -147,7 +147,7 @@ namespace CR.UI
         {
             this.CloseControl();
 
-            var expenseType = new ucExpenseType();
+            var expenseType = new ucExpenseType(this, _expenseTypeServices);
             expenseType.Size = pnMain.Size;
             pnMain.Controls.Add(expenseType);
         }

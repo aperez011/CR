@@ -33,7 +33,7 @@ namespace CR.UI
             _con.Register<ICashRegisterServices, CashRegisterServices>();
             _con.Register<ICashExpenseServices, CashExpenseServices>();
             _con.Register<IReportServices, ReportServices>();
-            _con.Register<ICategoryServices, ExpenseTypeServices>();
+            _con.Register<IExpenseTypesServices, ExpenseTypeServices>();
 
             _con.Verify();
         }

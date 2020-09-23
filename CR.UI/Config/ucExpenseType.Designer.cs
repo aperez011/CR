@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbHeader = new System.Windows.Forms.GroupBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.gbDetails = new System.Windows.Forms.GroupBox();
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
             this.bsExpeseTypes = new System.Windows.Forms.BindingSource(this.components);
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +60,7 @@
             // 
             this.gbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbHeader.Controls.Add(this.btnReset);
             this.gbHeader.Controls.Add(this.btnExit);
             this.gbHeader.Controls.Add(this.btnSave);
             this.gbHeader.Controls.Add(this.txtDescription);
@@ -76,24 +81,26 @@
             this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(346, 119);
+            this.btnExit.Location = new System.Drawing.Point(380, 142);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(239, 63);
+            this.btnExit.Size = new System.Drawing.Size(239, 40);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "SALIR";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.SpringGreen;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(346, 35);
+            this.btnSave.Location = new System.Drawing.Point(380, 35);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(239, 63);
+            this.btnSave.Size = new System.Drawing.Size(239, 40);
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDescription
             // 
@@ -164,6 +171,8 @@
             this.dgvExpenses.AutoGenerateColumns = false;
             this.dgvExpenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.btnDelete,
+            this.Id,
             this.codeDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
@@ -177,10 +186,42 @@
             this.dgvExpenses.RowHeadersVisible = false;
             this.dgvExpenses.Size = new System.Drawing.Size(633, 179);
             this.dgvExpenses.TabIndex = 0;
+            this.dgvExpenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpenses_CellContentClick);
             // 
             // bsExpeseTypes
             // 
             this.bsExpeseTypes.DataSource = typeof(CR.Entities.ExpenseType);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
+            this.btnReset.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReset.Location = new System.Drawing.Point(380, 90);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(239, 40);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reiniciar";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.btnDelete.HeaderText = "Borrar";
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ReadOnly = true;
+            this.btnDelete.Text = "Borrar";
+            this.btnDelete.UseColumnTextForButtonValue = true;
+            this.btnDelete.Width = 41;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // codeDataGridViewTextBoxColumn
             // 
@@ -210,6 +251,8 @@
             // 
             this.logDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.logDateDataGridViewTextBoxColumn.DataPropertyName = "LogDate";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm:ss tt";
+            this.logDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.logDateDataGridViewTextBoxColumn.HeaderText = "Fecha Registro";
             this.logDateDataGridViewTextBoxColumn.Name = "logDateDataGridViewTextBoxColumn";
             this.logDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -229,6 +272,7 @@
             this.Controls.Add(this.gbHeader);
             this.Name = "ucExpenseType";
             this.Size = new System.Drawing.Size(645, 410);
+            this.Load += new System.EventHandler(this.ucExpenseType_Load);
             this.gbHeader.ResumeLayout(false);
             this.gbHeader.PerformLayout();
             this.gbDetails.ResumeLayout(false);
@@ -252,6 +296,9 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.BindingSource bsExpeseTypes;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.DataGridViewButtonColumn btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;

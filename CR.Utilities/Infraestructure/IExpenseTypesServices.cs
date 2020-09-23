@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace CR.Utilities.Infraestructure
 {
-    public interface ICategoryServices : IBaseMethods<ExpenseType>
+    public interface IExpenseTypesServices : IBaseMethods<ExpenseType>
     {
+        OperationResult Delete(int entityId);
     }
 }

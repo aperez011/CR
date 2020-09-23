@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CR.Services
 {
-    public class ExpenseTypeServices : ICategoryServices
+    public class ExpenseTypeServices : IExpenseTypesServices
     {
         private dbModelContext _context;
 
@@ -60,6 +60,26 @@ namespace CR.Services
                 using (_context = new dbModelContext())
                 {
                     _context.ExpenseTypes.Add(entity);
+                    _context.SaveChanges();
+                }
+
+                return OperationResult.SetSucces();
+            }
+            catch (Exception ex)
+            {
+                return OperationResult.SetFail(ex.Message);
+            }
+        }
+
+        public OperationResult Delete(int entityId)
+        {
+            try
+            {
+                using (_context = new dbModelContext())
+                {
+                    var toDelete = _context.ExpenseTypes.FirstOrDefault(c => c.Id == entityId);
+
+                    var result = _context.ExpenseTypes.Remove(toDelete);
                     _context.SaveChanges();
                 }
 

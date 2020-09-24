@@ -17,6 +17,7 @@ namespace CR.Data
 
             this.ToTable("CashExpenses");
             this.Property(t => t.Id);
+            this.Property(t => t.ExpenseTypeId);
             this.Property(t => t.RegisterDate);
             this.Property(t => t.BillNum);
             this.Property(t => t.BillAmount);

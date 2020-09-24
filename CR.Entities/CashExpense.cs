@@ -9,14 +9,14 @@ namespace CR.Entities
 {
     public class CashExpense : EntityBase
     {
+        public int ExpenseTypeId { get; set; }
         public DateTime RegisterDate { get; set; }
         public string BillNum { get; set; }
         public decimal BillAmount { get; set; }
-
         public int UserId { get; set; }
         public string Reason { get; set; }
         public DateTime LastUpdate { get; set; }
 
-        //public virtual User User { get; set; }
+        public virtual ExpenseType ExpenseType { get; set; }
     }
 }

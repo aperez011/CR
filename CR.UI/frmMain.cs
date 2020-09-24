@@ -122,7 +122,7 @@ namespace CR.UI
         {
             this.CloseControl();
 
-            var expense = new ucExpenses(this, _cashExpenseServices, _loginServices);
+            var expense = new ucExpenses(this, _cashExpenseServices, _loginServices, _expenseTypeServices);
             pnMain.Controls.Add(expense);
         }
 

@@ -29,14 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnTipoGasto = new System.Windows.Forms.Panel();
+            this.btnReset3 = new System.Windows.Forms.Button();
+            this.btnSearchByExpenseType = new System.Windows.Forms.Button();
+            this.cbExpenseTypes = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnPorUsuario = new System.Windows.Forms.Panel();
             this.btnReset2 = new System.Windows.Forms.Button();
             this.btnSearchByUser = new System.Windows.Forms.Button();
             this.cbUsers = new System.Windows.Forms.ComboBox();
-            this.bsUsers = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.pnPorFecha = new System.Windows.Forms.Panel();
             this.btnReset = new System.Windows.Forms.Button();
@@ -57,8 +62,8 @@
             this.userIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsCashExpenses = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            this.pnTipoGasto.SuspendLayout();
             this.pnPorUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsUsers)).BeginInit();
             this.pnPorFecha.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgbExpenses)).BeginInit();
@@ -67,6 +72,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pnTipoGasto);
             this.panel1.Controls.Add(this.pnPorUsuario);
             this.panel1.Controls.Add(this.pnPorFecha);
             this.panel1.Controls.Add(this.cbFiltarPor);
@@ -77,8 +83,65 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(711, 518);
+            this.panel1.Size = new System.Drawing.Size(711, 539);
             this.panel1.TabIndex = 0;
+            // 
+            // pnTipoGasto
+            // 
+            this.pnTipoGasto.Controls.Add(this.btnReset3);
+            this.pnTipoGasto.Controls.Add(this.btnSearchByExpenseType);
+            this.pnTipoGasto.Controls.Add(this.cbExpenseTypes);
+            this.pnTipoGasto.Controls.Add(this.label3);
+            this.pnTipoGasto.Location = new System.Drawing.Point(5, 473);
+            this.pnTipoGasto.Name = "pnTipoGasto";
+            this.pnTipoGasto.Size = new System.Drawing.Size(334, 55);
+            this.pnTipoGasto.TabIndex = 16;
+            this.pnTipoGasto.Visible = false;
+            // 
+            // btnReset3
+            // 
+            this.btnReset3.BackColor = System.Drawing.Color.Cyan;
+            this.btnReset3.BackgroundImage = global::CR.UI.Properties.Resources.refresh_1782307_1514157;
+            this.btnReset3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReset3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnReset3.Location = new System.Drawing.Point(265, 2);
+            this.btnReset3.Name = "btnReset3";
+            this.btnReset3.Size = new System.Drawing.Size(66, 50);
+            this.btnReset3.TabIndex = 15;
+            this.btnReset3.UseVisualStyleBackColor = false;
+            this.btnReset3.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSearchByExpenseType
+            // 
+            this.btnSearchByExpenseType.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSearchByExpenseType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchByExpenseType.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSearchByExpenseType.Location = new System.Drawing.Point(193, 2);
+            this.btnSearchByExpenseType.Name = "btnSearchByExpenseType";
+            this.btnSearchByExpenseType.Size = new System.Drawing.Size(66, 50);
+            this.btnSearchByExpenseType.TabIndex = 14;
+            this.btnSearchByExpenseType.Text = "Buscar";
+            this.btnSearchByExpenseType.UseVisualStyleBackColor = false;
+            this.btnSearchByExpenseType.Click += new System.EventHandler(this.btnSearchByExpenseType_Click);
+            // 
+            // cbExpenseTypes
+            // 
+            this.cbExpenseTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExpenseTypes.FormattingEnabled = true;
+            this.cbExpenseTypes.Location = new System.Drawing.Point(6, 22);
+            this.cbExpenseTypes.Name = "cbExpenseTypes";
+            this.cbExpenseTypes.Size = new System.Drawing.Size(177, 21);
+            this.cbExpenseTypes.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tipo de Gastos";
             // 
             // pnPorUsuario
             // 
@@ -117,25 +180,16 @@
             this.btnSearchByUser.TabIndex = 14;
             this.btnSearchByUser.Text = "Buscar";
             this.btnSearchByUser.UseVisualStyleBackColor = false;
+            this.btnSearchByUser.Click += new System.EventHandler(this.btnSearchByUser_Click);
             // 
             // cbUsers
             // 
-            this.cbUsers.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bsUsers, "UserName", true));
-            this.cbUsers.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bsUsers, "Id", true));
-            this.cbUsers.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsUsers, "UserName", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "-"));
-            this.cbUsers.DataSource = this.bsUsers;
-            this.cbUsers.DisplayMember = "UserName";
             this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Location = new System.Drawing.Point(6, 22);
             this.cbUsers.Name = "cbUsers";
             this.cbUsers.Size = new System.Drawing.Size(177, 21);
             this.cbUsers.TabIndex = 1;
-            this.cbUsers.ValueMember = "Id";
-            // 
-            // bsUsers
-            // 
-            this.bsUsers.DataSource = typeof(CR.Entities.DTO.UserDTO);
             // 
             // label4
             // 
@@ -230,18 +284,19 @@
             this.cbFiltarPor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltarPor.FormattingEnabled = true;
             this.cbFiltarPor.Items.AddRange(new object[] {
-            "Por Fecha",
-            "Por Usuario"});
-            this.cbFiltarPor.Location = new System.Drawing.Point(273, 25);
+            "Fecha",
+            "Usuario",
+            "Tipo de Gasto"});
+            this.cbFiltarPor.Location = new System.Drawing.Point(255, 25);
             this.cbFiltarPor.Name = "cbFiltarPor";
-            this.cbFiltarPor.Size = new System.Drawing.Size(82, 21);
+            this.cbFiltarPor.Size = new System.Drawing.Size(100, 21);
             this.cbFiltarPor.TabIndex = 9;
             this.cbFiltarPor.SelectedValueChanged += new System.EventHandler(this.cbFiltarPor_SelectedValueChanged);
             // 
             // lbTextFil
             // 
             this.lbTextFil.AutoSize = true;
-            this.lbTextFil.Location = new System.Drawing.Point(270, 9);
+            this.lbTextFil.Location = new System.Drawing.Point(252, 9);
             this.lbTextFil.Name = "lbTextFil";
             this.lbTextFil.Size = new System.Drawing.Size(51, 13);
             this.lbTextFil.TabIndex = 8;
@@ -308,9 +363,9 @@
             // 
             this.registerDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.registerDateDataGridViewTextBoxColumn.DataPropertyName = "RegisterDate";
-            dataGridViewCellStyle9.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle9.NullValue = "-";
-            this.registerDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle5.NullValue = "-";
+            this.registerDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.registerDateDataGridViewTextBoxColumn.HeaderText = "Fecha de Registro";
             this.registerDateDataGridViewTextBoxColumn.Name = "registerDateDataGridViewTextBoxColumn";
             this.registerDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -327,9 +382,9 @@
             // 
             this.billAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.billAmountDataGridViewTextBoxColumn.DataPropertyName = "BillAmount";
-            dataGridViewCellStyle10.Format = "C2";
-            dataGridViewCellStyle10.NullValue = "-";
-            this.billAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = "-";
+            this.billAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.billAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.billAmountDataGridViewTextBoxColumn.Name = "billAmountDataGridViewTextBoxColumn";
             this.billAmountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -352,13 +407,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "ucExpenses";
-            this.Size = new System.Drawing.Size(711, 518);
+            this.Size = new System.Drawing.Size(711, 539);
             this.Load += new System.EventHandler(this.ucExpenses_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pnTipoGasto.ResumeLayout(false);
+            this.pnTipoGasto.PerformLayout();
             this.pnPorUsuario.ResumeLayout(false);
             this.pnPorUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsUsers)).EndInit();
             this.pnPorFecha.ResumeLayout(false);
             this.pnPorFecha.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -384,7 +440,6 @@
         private System.Windows.Forms.Label lbTextFil;
         private System.Windows.Forms.Panel pnPorUsuario;
         private System.Windows.Forms.ComboBox cbUsers;
-        private System.Windows.Forms.BindingSource bsUsers;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnPorFecha;
         private System.Windows.Forms.DateTimePicker dtpHasta;
@@ -395,5 +450,10 @@
         private System.Windows.Forms.Button btnSearchByDate;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnReset2;
+        private System.Windows.Forms.Panel pnTipoGasto;
+        private System.Windows.Forms.Button btnReset3;
+        private System.Windows.Forms.Button btnSearchByExpenseType;
+        private System.Windows.Forms.ComboBox cbExpenseTypes;
+        private System.Windows.Forms.Label label3;
     }
 }

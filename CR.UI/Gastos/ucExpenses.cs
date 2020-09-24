@@ -6,19 +6,26 @@ using CR.Utilities;
 using CR.Entities;
 using CR.Utilities.Enums;
 using System.Drawing;
+using System.Linq;
+using CR.Entities.DTO;
 
 namespace CR.UI.Gastos
 {
     public partial class ucExpenses : UserControl
     {
         private readonly ICashExpenseServices _cashExpenseServices;
+        private readonly IExpenseTypesServices _expenseTypesServices;
         private readonly ILoginServices _loginServices;
         private FormBase _frm;
 
-        public ucExpenses(FormBase frm, ICashExpenseServices cashExpenseServices, ILoginServices loginServices)
+        public ucExpenses(FormBase frm,
+                          ICashExpenseServices cashExpenseServices,
+                          ILoginServices loginServices,
+                          IExpenseTypesServices expenseTypesServices)
         {
             InitializeComponent();
             _cashExpenseServices = cashExpenseServices;
+            _expenseTypesServices = expenseTypesServices;
             _loginServices = loginServices;
             _frm = frm;
         }
@@ -30,6 +37,7 @@ namespace CR.UI.Gastos
             cbFiltarPor.Visible = (StaticProperties.User.Rol == UserRoles.Admin.ToString());
 
             this.Refesh();
+            this.LoadInfo();
         }
 
         private void btnAddExpense_Click(object sender, EventArgs e)
@@ -44,7 +52,7 @@ namespace CR.UI.Gastos
             };
 
 
-            var addExpense = new RegisterExpense(cashExpense);
+            var addExpense = new RegisterExpense(cashExpense, _expenseTypesServices);
             if (addExpense.ShowDialog() != DialogResult.OK) return;
 
 
@@ -86,22 +94,30 @@ namespace CR.UI.Gastos
         private void cbFiltarPor_SelectedValueChanged(object sender, EventArgs e)
         {
             var selected = cbFiltarPor.SelectedItem;
+            var location = new Point(358, 3);
 
             switch (selected)
             {
-                case "Por Fecha":
+                case "Fecha":
                     pnPorUsuario.Visible = false;
+                    pnTipoGasto.Visible = false;
 
-                    pnPorFecha.Location = new Point(358, 3);
+                    pnPorFecha.Location = location;
                     pnPorFecha.Visible = true;
                     break;
-                case "Por Usuario":
+                case "Usuario":
                     pnPorFecha.Visible = false;
+                    pnTipoGasto.Visible = false;
 
-                    pnPorUsuario.Location = new Point(358, 3);
+                    pnPorUsuario.Location = location;
                     pnPorUsuario.Visible = true;
+                    break;
+                case "Tipo de Gasto":
+                    pnPorFecha.Visible = false;
+                    pnPorUsuario.Visible = false;
 
-                    this.LoadUser();
+                    pnTipoGasto.Location = location;
+                    pnTipoGasto.Visible = true;
                     break;
                 default:
                     break;
@@ -145,11 +161,50 @@ namespace CR.UI.Gastos
             dtpDesde.MaxDate = dtpHasta.Value.Date;
         }
 
-        private void LoadUser()
+        private void LoadInfo()
         {
-            var users = _loginServices.GetUsers();
+            //Load Users
+            var userResult = _loginServices.GetUsers();
+            if (userResult.Success)
+            {
 
-            if (users.Success) bsUsers.DataSource = users.Data;
+                if (StaticProperties.User.Rol != UserRoles.Admin.ToString())
+                {
+                    cbUsers.DataSource = userResult.Data.ToList().Where(c => c.Id == StaticProperties.User.Id);
+                    cbUsers.DisplayMember = "UserName";
+                }
+                else
+                {
+                    cbUsers.DataSource = userResult.Data.ToList();
+                    cbUsers.DisplayMember = "UserName";
+                }
+            }
+
+            //Load Expense Types
+            var expenses = _expenseTypesServices.FindBy(exp => exp.IsActive);
+            if (expenses.Success)
+            {
+                cbExpenseTypes.DataSource = expenses.Data.ToList();
+                cbExpenseTypes.DisplayMember = "Name";
+            }
+        }
+
+        private void btnSearchByExpenseType_Click(object sender, EventArgs e)
+        {
+            var expenseType = (ExpenseType)cbExpenseTypes.SelectedItem;
+
+            var expenses = _cashExpenseServices.FindBy(ce => ce.ExpenseTypeId == expenseType.Id);
+            bsCashExpenses.DataSource = expenses;
+            bsCashExpenses.ResetBindings(true);
+        }
+
+        private void btnSearchByUser_Click(object sender, EventArgs e)
+        {
+            var user = (UserDTO)cbUsers.SelectedItem;
+
+            var expenses = _cashExpenseServices.FindBy(ce => ce.UserId == user.Id);
+            bsCashExpenses.DataSource = expenses;
+            bsCashExpenses.ResetBindings(true);
         }
     }
 }

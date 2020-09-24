@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbExpenseTypes = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtReason = new System.Windows.Forms.TextBox();
@@ -38,8 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbExpenseTypes = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(328, 290);
             this.panel1.TabIndex = 0;
+            // 
+            // cbExpenseTypes
+            // 
+            this.cbExpenseTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExpenseTypes.FormattingEnabled = true;
+            this.cbExpenseTypes.Location = new System.Drawing.Point(15, 29);
+            this.cbExpenseTypes.Name = "cbExpenseTypes";
+            this.cbExpenseTypes.Size = new System.Drawing.Size(292, 21);
+            this.cbExpenseTypes.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Tipo de Gasto";
             // 
             // btnCancel
             // 
@@ -154,25 +173,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Numero Factura";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Tipo de Gasto";
-            // 
-            // cbExpenseTypes
-            // 
-            this.cbExpenseTypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbExpenseTypes.FormattingEnabled = true;
-            this.cbExpenseTypes.Location = new System.Drawing.Point(15, 29);
-            this.cbExpenseTypes.Name = "cbExpenseTypes";
-            this.cbExpenseTypes.Size = new System.Drawing.Size(292, 21);
-            this.cbExpenseTypes.TabIndex = 10;
-            // 
             // RegisterExpense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +184,7 @@
             this.Name = "RegisterExpense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Gasto";
+            this.Load += new System.EventHandler(this.RegisterExpense_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

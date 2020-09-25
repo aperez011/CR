@@ -12,6 +12,8 @@ using CR.Entities.DTO;
 using CR.Utilities.Enums;
 using CR.Utilities.Infraestructure;
 using System.Globalization;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace CR.UI.Reporte
 {
@@ -162,6 +164,12 @@ namespace CR.UI.Reporte
             if (result.Success)
             {
                 reportData = result.Data;
+
+                //XmlSerializer serializer = new XmlSerializer(typeof(ReportDTO));
+                //TextWriter textWriter = new StreamWriter(@"C:\XmlReport\test.xml");
+                //serializer.Serialize(textWriter, reportData);
+                //textWriter.Close();
+
                 bsReportHeader.DataSource = result.Data.Header;
                 bsReportDetail.DataSource = result.Data.DetailResume;
             }

@@ -113,7 +113,7 @@ namespace CR.UI
 
         private void tsbReports_Click(object sender, EventArgs e)
         {
-            var report = new frmReporteCaja();
+            var report = new frmReporteCaja(_reportServices);
 
             report.ShowDialog();
         }
@@ -128,10 +128,6 @@ namespace CR.UI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Esta seguro que desea salir?", "Motificación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Cancel) return;
-
             Application.Restart();
         }
 

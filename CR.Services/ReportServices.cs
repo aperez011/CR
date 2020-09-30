@@ -144,5 +144,43 @@ namespace CR.Services
         {
             throw new NotImplementedException();
         }
+
+        public OperationResult<IEnumerable<FilterInformation>> GetFilterInfoByDate(DateTime startDate, DateTime endDate)
+        {
+            startDate = DateTime.Parse("7/1/2020");
+
+            var info = new List<FilterInformation>();
+
+            using (_context = new dbModelContext())
+            {
+                var result = _context.CashRegisters
+                    .Select(cr => new CashTransformToFilter
+                    {
+                        Shift = cr.ShiftId,
+                        Cashier = cr.CashierId,
+                        DateRegister = cr.DateRegister
+                    }).ToList();
+
+                var cashiers = result.Select(c => c.Cashier).Distinct().ToList();
+
+                var shifts = result.Select(sh => new
+                                        {
+                                            sh.Cashier,
+                                            ShiftId = sh.Shift,
+                                            ShiftCode = sh.Shift.ToString()
+                                        }).Distinct().ToList();
+
+                cashiers.ForEach(c =>
+                {
+                    info.Add(new FilterInformation
+                    {
+                        User = _context.User.Select(us => new UserDTO { Id = us.Id, UserName = us.UserName, Rol = string.Empty }).FirstOrDefault(u => u.Id == c),
+                        Shifts = shifts.Where(s => s.Cashier == c).Select(sh=> new ShiftsInf { ShiftId = sh.ShiftId, ShiftCode = sh.ShiftCode }).ToList()
+                    });
+                });
+            }
+
+            return OperationResult<IEnumerable<FilterInformation>>.SetSucces(info);
+        }
     }
 }

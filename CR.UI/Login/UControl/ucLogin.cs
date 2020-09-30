@@ -89,5 +89,14 @@ namespace CR.UI.Login.UControl
                 this.btnLogin_Click(sender, e);
             }
         }
+
+        private void ucLogin_Load(object sender, EventArgs e)
+        {
+            pnUserCenter.Padding =  new Padding((this.Width - pnUserCenter.Width) / 2,//Left
+                                                0,//Top
+                                                (this.Width - pnUserCenter.Width) / 2,//Right
+                                                0 //Bottom
+                                                );
+        }
     }
 }

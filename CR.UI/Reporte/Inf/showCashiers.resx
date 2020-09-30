@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="decision" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\decision1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Login Manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Login Manager.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="22a7d900e789f94176d15ac206ffcbe6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\22a7d900e789f94176d15ac206ffcbe6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Coins 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Coins 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="customer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1333204267_Log Out" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1333204267_Log Out.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="question-mark-user-interface-button-symbol-menu-bar-line-circle-line-art-png-clip-art" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\question-mark-user-interface-button-symbol-menu-bar-line-circle-line-art-png-clip-art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-1782307-1514157" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-1782307-1514157.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Expenses Types" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Expenses Types.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

@@ -49,6 +49,9 @@
     <Compile Include="CashRegister.cs" />
     <Compile Include="CashRegisterDetails.cs" />
     <Compile Include="CashRelation.cs" />
+    <Compile Include="DTO\CashTransformToFilter.cs" />
+    <Compile Include="DTO\FilterInformation.cs" />
+    <Compile Include="DTO\ShiftsInf.cs" />
     <Compile Include="ExpenseType.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="DTO\CashierReportDTO.cs" />

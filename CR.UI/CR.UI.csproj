@@ -15,6 +15,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>C:\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -155,6 +170,12 @@
     <Compile Include="Reporte\frmReporteCaja.Designer.cs">
       <DependentUpon>frmReporteCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte\Inf\showCashiers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte\Inf\showCashiers.Designer.cs">
+      <DependentUpon>showCashiers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reporte\ucCashierReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -207,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\frmReporteCaja.resx">
       <DependentUpon>frmReporteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte\Inf\showCashiers.resx">
+      <DependentUpon>showCashiers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte\ucCashierReport.resx">
       <DependentUpon>ucCashierReport.cs</DependentUpon>
@@ -275,6 +299,30 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RDLC\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coins 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22a7d900e789f94176d15ac206ffcbe6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expenses Types.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

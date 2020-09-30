@@ -30,12 +30,12 @@
         {
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.pnCenter = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lbMontoTotal = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbDetails = new System.Windows.Forms.GroupBox();
             this.gbCoins = new System.Windows.Forms.GroupBox();
-            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
@@ -71,6 +71,19 @@
             this.pnCenter.Name = "pnCenter";
             this.pnCenter.Size = new System.Drawing.Size(712, 454);
             this.pnCenter.TabIndex = 1;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExit.Location = new System.Drawing.Point(485, 262);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(219, 52);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "SALIR";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSave
             // 
@@ -122,19 +135,6 @@
             this.gbCoins.TabIndex = 0;
             this.gbCoins.TabStop = false;
             this.gbCoins.Text = "Billetes";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(485, 262);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(219, 52);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "SALIR";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ucOpenCashier
             // 

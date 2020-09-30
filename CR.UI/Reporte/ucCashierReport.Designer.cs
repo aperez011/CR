@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.scMain = new System.Windows.Forms.SplitContainer();
             this.lbUsuario = new System.Windows.Forms.Label();
+            this.bsReportHeader = new System.Windows.Forms.BindingSource(this.components);
             this.lbDate = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbBalance = new System.Windows.Forms.Label();
@@ -50,9 +51,16 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dbDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetails = new System.Windows.Forms.DataGridView();
+            this.CoinName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coinAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegisterDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsCashRegisterDetails = new System.Windows.Forms.BindingSource(this.components);
             this.tlpBalances = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.llbCashClose = new System.Windows.Forms.LinkLabel();
+            this.bsReportDetail = new System.Windows.Forms.BindingSource(this.components);
             this.llbCreditOpen = new System.Windows.Forms.LinkLabel();
             this.llbTransferOpen = new System.Windows.Forms.LinkLabel();
             this.llbDepositOpen = new System.Windows.Forms.LinkLabel();
@@ -73,31 +81,23 @@
             this.llbDepositClose = new System.Windows.Forms.LinkLabel();
             this.llbTransferClose = new System.Windows.Forms.LinkLabel();
             this.llbCreditClose = new System.Windows.Forms.LinkLabel();
-            this.bsReportHeader = new System.Windows.Forms.BindingSource(this.components);
-            this.bsCashRegisterDetails = new System.Windows.Forms.BindingSource(this.components);
-            this.bsReportDetail = new System.Windows.Forms.BindingSource(this.components);
-            this.CoinName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coinAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegisterDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).BeginInit();
             this.scMain.Panel1.SuspendLayout();
             this.scMain.Panel2.SuspendLayout();
             this.scMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsReportHeader)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.dbDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCashRegisterDetails)).BeginInit();
             this.tlpBalances.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsReportDetail)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsReportHeader)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCashRegisterDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsReportDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,6 +141,10 @@
             this.lbUsuario.Size = new System.Drawing.Size(17, 17);
             this.lbUsuario.TabIndex = 4;
             this.lbUsuario.Text = "_";
+            // 
+            // bsReportHeader
+            // 
+            this.bsReportHeader.DataSource = typeof(CR.Entities.DTO.CashierReportDTO);
             // 
             // lbDate
             // 
@@ -187,9 +191,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Location = new System.Drawing.Point(487, 61);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(213, 45);
@@ -210,9 +214,9 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnPrint.BackColor = System.Drawing.Color.SpringGreen;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.Location = new System.Drawing.Point(487, 10);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(213, 45);
@@ -319,6 +323,61 @@
             this.dgvDetails.Size = new System.Drawing.Size(700, 223);
             this.dgvDetails.TabIndex = 0;
             // 
+            // CoinName
+            // 
+            this.CoinName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CoinName.DataPropertyName = "CoinName";
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "N/A";
+            this.CoinName.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CoinName.HeaderText = "Moneda";
+            this.CoinName.Name = "CoinName";
+            this.CoinName.ReadOnly = true;
+            // 
+            // RefNum
+            // 
+            this.RefNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RefNum.DataPropertyName = "RefNum";
+            dataGridViewCellStyle2.NullValue = "NONE";
+            this.RefNum.DefaultCellStyle = dataGridViewCellStyle2;
+            this.RefNum.HeaderText = "Numero de Referencia";
+            this.RefNum.Name = "RefNum";
+            this.RefNum.ReadOnly = true;
+            // 
+            // totalAmountDataGridViewTextBoxColumn
+            // 
+            this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "-";
+            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // coinAmountDataGridViewTextBoxColumn
+            // 
+            this.coinAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.coinAmountDataGridViewTextBoxColumn.DataPropertyName = "CoinAmount";
+            this.coinAmountDataGridViewTextBoxColumn.HeaderText = "Cantidad";
+            this.coinAmountDataGridViewTextBoxColumn.Name = "coinAmountDataGridViewTextBoxColumn";
+            this.coinAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RegisterDate
+            // 
+            this.RegisterDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RegisterDate.DataPropertyName = "RegisterDate";
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy h:MM:ss tt";
+            dataGridViewCellStyle4.NullValue = "N/A";
+            this.RegisterDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.RegisterDate.HeaderText = "Fecha de Registro";
+            this.RegisterDate.Name = "RegisterDate";
+            this.RegisterDate.ReadOnly = true;
+            // 
+            // bsCashRegisterDetails
+            // 
+            this.bsCashRegisterDetails.DataSource = typeof(CR.Entities.DTO.DetailDTO);
+            // 
             // tlpBalances
             // 
             this.tlpBalances.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
@@ -379,6 +438,10 @@
             this.llbCashClose.Text = "_";
             this.llbCashClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.llbCashClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCash_LinkClicked);
+            // 
+            // bsReportDetail
+            // 
+            this.bsReportDetail.DataSource = typeof(CR.Entities.DTO.BalanceDetails);
             // 
             // llbCreditOpen
             // 
@@ -617,69 +680,6 @@
             this.llbCreditClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.llbCreditClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCredits_LinkClicked);
             // 
-            // bsReportHeader
-            // 
-            this.bsReportHeader.DataSource = typeof(CR.Entities.DTO.CashierReportDTO);
-            // 
-            // bsCashRegisterDetails
-            // 
-            this.bsCashRegisterDetails.DataSource = typeof(CR.Entities.DTO.DetailDTO);
-            // 
-            // bsReportDetail
-            // 
-            this.bsReportDetail.DataSource = typeof(CR.Entities.DTO.BalanceDetails);
-            // 
-            // CoinName
-            // 
-            this.CoinName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CoinName.DataPropertyName = "CoinName";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "N/A";
-            this.CoinName.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CoinName.HeaderText = "Moneda";
-            this.CoinName.Name = "CoinName";
-            this.CoinName.ReadOnly = true;
-            // 
-            // RefNum
-            // 
-            this.RefNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RefNum.DataPropertyName = "RefNum";
-            dataGridViewCellStyle2.NullValue = "NONE";
-            this.RefNum.DefaultCellStyle = dataGridViewCellStyle2;
-            this.RefNum.HeaderText = "Numero de Referencia";
-            this.RefNum.Name = "RefNum";
-            this.RefNum.ReadOnly = true;
-            // 
-            // totalAmountDataGridViewTextBoxColumn
-            // 
-            this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = "-";
-            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
-            this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // coinAmountDataGridViewTextBoxColumn
-            // 
-            this.coinAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.coinAmountDataGridViewTextBoxColumn.DataPropertyName = "CoinAmount";
-            this.coinAmountDataGridViewTextBoxColumn.HeaderText = "Cantidad";
-            this.coinAmountDataGridViewTextBoxColumn.Name = "coinAmountDataGridViewTextBoxColumn";
-            this.coinAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // RegisterDate
-            // 
-            this.RegisterDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RegisterDate.DataPropertyName = "RegisterDate";
-            dataGridViewCellStyle4.Format = "dd/MM/yyyy h:MM:ss tt";
-            dataGridViewCellStyle4.NullValue = "N/A";
-            this.RegisterDate.DefaultCellStyle = dataGridViewCellStyle4;
-            this.RegisterDate.HeaderText = "Fecha de Registro";
-            this.RegisterDate.Name = "RegisterDate";
-            this.RegisterDate.ReadOnly = true;
-            // 
             // ucCashierReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,20 +694,20 @@
             this.scMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.scMain)).EndInit();
             this.scMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bsReportHeader)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.dbDetalles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsCashRegisterDetails)).EndInit();
             this.tlpBalances.ResumeLayout(false);
             this.tlpBalances.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsReportDetail)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bsReportHeader)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsCashRegisterDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsReportDetail)).EndInit();
             this.ResumeLayout(false);
 
         }

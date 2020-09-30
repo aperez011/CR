@@ -35,6 +35,7 @@ namespace CR.UI.Login
             else
                 control = new ucNewAdminUser(_loginServices);
 
+            control.Size = pnMain.Size;
             pnMain.Controls.Add(control);
         }
     }

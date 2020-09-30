@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtConfPassword = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -65,13 +65,6 @@
             this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Confirmar Contraseña";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(35, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 128);
-            this.panel1.TabIndex = 5;
             // 
             // txtUser
             // 
@@ -118,6 +111,16 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::CR.UI.Properties.Resources.customer;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(35, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(181, 128);
+            this.panel1.TabIndex = 5;
             // 
             // ucNewAdminUser
             // 

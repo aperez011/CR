@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbHeader = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -41,8 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbDetails = new System.Windows.Forms.GroupBox();
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
-            this.bsExpeseTypes = new System.Windows.Forms.BindingSource(this.components);
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,16 +49,20 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.logDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bsExpeseTypes = new System.Windows.Forms.BindingSource(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbHeader.SuspendLayout();
             this.gbDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsExpeseTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbHeader
             // 
             this.gbHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbHeader.Controls.Add(this.pictureBox1);
             this.gbHeader.Controls.Add(this.btnReset);
             this.gbHeader.Controls.Add(this.btnExit);
             this.gbHeader.Controls.Add(this.btnSave);
@@ -76,14 +79,27 @@
             this.gbHeader.TabStop = false;
             this.gbHeader.Text = "Gasto";
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
+            this.btnReset.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReset.Location = new System.Drawing.Point(443, 90);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(193, 40);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "REINICIAR";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(380, 142);
+            this.btnExit.Location = new System.Drawing.Point(443, 142);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(239, 40);
+            this.btnExit.Size = new System.Drawing.Size(193, 40);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "SALIR";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -94,40 +110,40 @@
             this.btnSave.BackColor = System.Drawing.Color.SpringGreen;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(380, 35);
+            this.btnSave.Location = new System.Drawing.Point(443, 35);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(239, 40);
+            this.btnSave.Size = new System.Drawing.Size(193, 40);
             this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Guardar";
+            this.btnSave.Text = "GUARDAR";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(8, 119);
+            this.txtDescription.Location = new System.Drawing.Point(183, 119);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(245, 63);
+            this.txtDescription.Size = new System.Drawing.Size(246, 63);
             this.txtDescription.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(8, 78);
+            this.txtName.Location = new System.Drawing.Point(183, 78);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(245, 20);
+            this.txtName.Size = new System.Drawing.Size(246, 20);
             this.txtName.TabIndex = 4;
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(8, 35);
+            this.txtCode.Location = new System.Drawing.Point(183, 35);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(245, 20);
+            this.txtCode.Size = new System.Drawing.Size(246, 20);
             this.txtCode.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 103);
+            this.label3.Location = new System.Drawing.Point(180, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 2;
@@ -136,7 +152,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 62);
+            this.label2.Location = new System.Drawing.Point(180, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 1;
@@ -145,7 +161,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 19);
+            this.label1.Location = new System.Drawing.Point(180, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 0;
@@ -187,23 +203,6 @@
             this.dgvExpenses.Size = new System.Drawing.Size(633, 179);
             this.dgvExpenses.TabIndex = 0;
             this.dgvExpenses.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExpenses_CellContentClick);
-            // 
-            // bsExpeseTypes
-            // 
-            this.bsExpeseTypes.DataSource = typeof(CR.Entities.ExpenseType);
-            // 
-            // btnReset
-            // 
-            this.btnReset.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Bold);
-            this.btnReset.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReset.Location = new System.Drawing.Point(380, 90);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(239, 40);
-            this.btnReset.TabIndex = 9;
-            this.btnReset.Text = "Reiniciar";
-            this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete
             // 
@@ -251,8 +250,8 @@
             // 
             this.logDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.logDateDataGridViewTextBoxColumn.DataPropertyName = "LogDate";
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy HH:mm:ss tt";
-            this.logDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy HH:mm:ss tt";
+            this.logDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.logDateDataGridViewTextBoxColumn.HeaderText = "Fecha Registro";
             this.logDateDataGridViewTextBoxColumn.Name = "logDateDataGridViewTextBoxColumn";
             this.logDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -263,6 +262,20 @@
             this.isActiveDataGridViewCheckBoxColumn.HeaderText = "Activo";
             this.isActiveDataGridViewCheckBoxColumn.Name = "isActiveDataGridViewCheckBoxColumn";
             this.isActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // bsExpeseTypes
+            // 
+            this.bsExpeseTypes.DataSource = typeof(CR.Entities.ExpenseType);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CR.UI.Properties.Resources.Expenses_Types;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 163);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // ucExpenseType
             // 
@@ -278,6 +291,7 @@
             this.gbDetails.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsExpeseTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,5 +318,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn logDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isActiveDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

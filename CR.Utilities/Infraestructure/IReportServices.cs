@@ -11,7 +11,7 @@ namespace CR.Utilities.Infraestructure
     {
         OperationResult<IEnumerable<FilterInformation>> GetFilterInfoByDate(DateTime startDate, DateTime endDate);
         OperationResult<IEnumerable<ReportDTO>> GetReportByDate(DateTime date);
-        OperationResult<IEnumerable<ReportDTO>> GetReportByUser(int userId);
+        OperationResult<ReportDTO> GetReportByShift(int shiftId);
         OperationResult<ReportDTO> GetReportBy(int userId, DateTime date);
     }
 }

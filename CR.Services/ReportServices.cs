@@ -120,23 +120,108 @@ namespace CR.Services
             }
         }
 
-        public OperationResult<IEnumerable<ReportDTO>> GetReportByUser(int userId)
+        public OperationResult<ReportDTO> GetReportByShift(int shiftId)
         {
+
             try
             {
-                IEnumerable<ReportDTO> result = null;
+                ReportDTO result = new ReportDTO();
+                List<DetailDTO> getOpenDetail = new List<DetailDTO>();
+                List<DetailDTO> getCloseDetail = new List<DetailDTO>();
 
                 using (_context = new dbModelContext())
                 {
 
+                    var registers = _context.CashRegisters.Where(r => r.ShiftId == shiftId).ToList();
+
+                    var openCashier = registers.FirstOrDefault(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Apertura.GetDescription()));
+                    var closeCashier = registers.FirstOrDefault(c => c.RegisterType == Guid.Parse(CashRegisterTypes.Cierre.GetDescription()));
+                    var expenses = _context.CashExpenses.Where(ex => ex.RegisterDate == openCashier.DateRegister && ex.UserId == openCashier.CashierId).ToList();
+
+                    if (openCashier != null)
+                    {
+                        getOpenDetail = _context.Coins
+                                                   .Join(_context.CashRegisterDetails,
+                                                           co => co.Id,
+                                                           cr => cr.CoinId,
+                                                           (co, cr) => new { Coin = co, Detail = cr })
+                                                   .Where(c => c.Detail.CashRegisterId == openCashier.Id).Select(c => new DetailDTO
+                                                   {
+                                                       CoinName = c.Coin.Name,
+                                                       RegisterType = openCashier.RegisterType,
+                                                       RefNum = c.Detail.RefNumber,
+                                                       CoinType = c.Coin.Type,
+                                                       CoinAmount = c.Detail.CoinAmount,
+                                                       TotalAmount = c.Detail.TotalAmount,
+                                                       RegisterDate = c.Detail.LogDate
+                                                   }).ToList();
+                    }
+
+                    if (closeCashier != null)
+                    {
+                        getCloseDetail = _context.Coins
+                                                .Join(_context.CashRegisterDetails,
+                                                        co => co.Id,
+                                                        cr => cr.CoinId,
+                                                        (co, cr) => new { Coin = co, Detail = cr })
+                                                .Where(c => c.Detail.CashRegisterId == closeCashier.Id).Select(c => new DetailDTO
+                                                {
+                                                    CoinName = c.Coin.Name,
+                                                    RegisterType = closeCashier.RegisterType,
+                                                    RefNum = c.Detail.RefNumber,
+                                                    CoinType = c.Coin.Type,
+                                                    CoinAmount = c.Detail.CoinAmount,
+                                                    TotalAmount = c.Detail.TotalAmount,
+                                                    RegisterDate = c.Detail.LogDate
+                                                }).ToList();
+
+
+                    }
+
+                    var totalOpenAmount = openCashier?.TotalAmount ?? 0;
+                    var totalCloseAmount = closeCashier?.TotalAmount ?? 0;
+                    var totalExpenses = expenses.Sum(c => c.BillAmount);
+
+                    var cashBalance = ((totalCloseAmount - totalOpenAmount) - totalExpenses);
+
+                    //Header
+                    result.Header = new CashierReportDTO
+                    {
+                        UserName = StaticProperties.User.UserName.ToUpper(),
+                        Date = openCashier.DateRegister.ToString("dd/MM/yyyy").ToUpper(),
+                        OpenAmount = totalOpenAmount.ToString("C"),
+                        CloseAmount = totalCloseAmount.ToString("C"),
+                        ExpensesAmount = totalExpenses.ToString("C"),
+                        CashBalance = cashBalance.ToString("C")
+                    };
+
+                    //Resumen
+                    result.DetailResume = new BalanceDetails
+                    {
+                        OpenCash = getOpenDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Efectivo.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        OpenCards = getOpenDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Tarjeta.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        OpenCredit = getOpenDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Credito.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        OpenDeposit = getOpenDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Deposito.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        OpenTransfer = getOpenDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Transferencia.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+
+                        CloseCash = getCloseDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Efectivo.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        CloseCards = getCloseDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Tarjeta.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        CloseCredit = getCloseDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Credito.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        CloseDeposit = getCloseDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Deposito.GetDescription())).Sum(c => c.TotalAmount).ToString("C"),
+                        CloseTransfer = getCloseDetail.Where(c => c.CoinType == Guid.Parse(CoinsType.Transferencia.GetDescription())).Sum(c => c.TotalAmount).ToString("C")
+                    };
+
+                    result.DetailResume.Details.AddRange(getOpenDetail);
+                    result.DetailResume.Details.AddRange(getCloseDetail);
+
 
                 }
 
-                return OperationResult<IEnumerable<ReportDTO>>.SetSucces(result);
+                return OperationResult<ReportDTO>.SetSucces(result);
             }
             catch (Exception ex)
             {
-                return OperationResult<IEnumerable<ReportDTO>>.SetFail(ex.Message);
+                return OperationResult<ReportDTO>.SetFail(ex.Message);
             }
         }
 

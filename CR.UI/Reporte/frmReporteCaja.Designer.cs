@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbDetails = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -83,6 +83,13 @@
             this.llbTransferClose = new System.Windows.Forms.LinkLabel();
             this.llbCreditClose = new System.Windows.Forms.LinkLabel();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
+            this.chbOther = new System.Windows.Forms.CheckBox();
+            this.chbDate = new System.Windows.Forms.CheckBox();
+            this.gbOthers = new System.Windows.Forms.GroupBox();
+            this.cbShifts = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbCashiers = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.gbDate = new System.Windows.Forms.GroupBox();
@@ -90,13 +97,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.gbOthers = new System.Windows.Forms.GroupBox();
-            this.cbShifts = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbCashiers = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chbDate = new System.Windows.Forms.CheckBox();
-            this.chbOther = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.gbDetails.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -117,8 +117,8 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbFiltros.SuspendLayout();
-            this.gbDate.SuspendLayout();
             this.gbOthers.SuspendLayout();
+            this.gbDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -226,6 +226,7 @@
             this.lbBalance.Size = new System.Drawing.Size(126, 21);
             this.lbBalance.TabIndex = 19;
             this.lbBalance.Text = "_";
+            this.lbBalance.TextChanged += new System.EventHandler(this.lbBalance_TextChanged);
             // 
             // label9
             // 
@@ -352,9 +353,9 @@
             // 
             this.CoinName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CoinName.DataPropertyName = "CoinName";
-            dataGridViewCellStyle45.Format = "N0";
-            dataGridViewCellStyle45.NullValue = "N/A";
-            this.CoinName.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = "N/A";
+            this.CoinName.DefaultCellStyle = dataGridViewCellStyle1;
             this.CoinName.HeaderText = "Moneda";
             this.CoinName.Name = "CoinName";
             this.CoinName.ReadOnly = true;
@@ -363,8 +364,8 @@
             // 
             this.RefNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.RefNum.DataPropertyName = "RefNum";
-            dataGridViewCellStyle46.NullValue = "NONE";
-            this.RefNum.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle2.NullValue = "NONE";
+            this.RefNum.DefaultCellStyle = dataGridViewCellStyle2;
             this.RefNum.HeaderText = "Numero de Referencia";
             this.RefNum.Name = "RefNum";
             this.RefNum.ReadOnly = true;
@@ -373,9 +374,9 @@
             // 
             this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
-            dataGridViewCellStyle47.Format = "C2";
-            dataGridViewCellStyle47.NullValue = "-";
-            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "-";
+            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Monto";
             this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
             this.totalAmountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -392,9 +393,9 @@
             // 
             this.RegisterDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.RegisterDate.DataPropertyName = "RegisterDate";
-            dataGridViewCellStyle48.Format = "dd/MM/yyyy h:MM:ss tt";
-            dataGridViewCellStyle48.NullValue = "N/A";
-            this.RegisterDate.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle4.Format = "dd/MM/yyyy h:MM:ss tt";
+            dataGridViewCellStyle4.NullValue = "N/A";
+            this.RegisterDate.DefaultCellStyle = dataGridViewCellStyle4;
             this.RegisterDate.HeaderText = "Fecha de Registro";
             this.RegisterDate.Name = "RegisterDate";
             this.RegisterDate.ReadOnly = true;
@@ -462,6 +463,7 @@
             this.llbCashClose.TabStop = true;
             this.llbCashClose.Text = "_";
             this.llbCashClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCashClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCash_LinkClicked);
             // 
             // bsReportDetail
             // 
@@ -479,6 +481,7 @@
             this.llbCreditOpen.TabStop = true;
             this.llbCreditOpen.Text = "_";
             this.llbCreditOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCreditOpen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCredits_LinkClicked);
             // 
             // llbTransferOpen
             // 
@@ -492,6 +495,7 @@
             this.llbTransferOpen.TabStop = true;
             this.llbTransferOpen.Text = "_";
             this.llbTransferOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbTransferOpen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbTransfer_LinkClicked);
             // 
             // llbDepositOpen
             // 
@@ -505,6 +509,7 @@
             this.llbDepositOpen.TabStop = true;
             this.llbDepositOpen.Text = "_";
             this.llbDepositOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbDepositOpen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbDeposit_LinkClicked);
             // 
             // llbCardOpen
             // 
@@ -518,6 +523,7 @@
             this.llbCardOpen.TabStop = true;
             this.llbCardOpen.Text = "_";
             this.llbCardOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCardOpen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCards_LinkClicked);
             // 
             // panel6
             // 
@@ -631,6 +637,7 @@
             this.llbCashOpen.TabStop = true;
             this.llbCashOpen.Text = "_";
             this.llbCashOpen.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCashOpen.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCash_LinkClicked);
             // 
             // label13
             // 
@@ -655,6 +662,7 @@
             this.llbCardClose.TabStop = true;
             this.llbCardClose.Text = "_";
             this.llbCardClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCardClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCards_LinkClicked);
             // 
             // llbDepositClose
             // 
@@ -668,6 +676,7 @@
             this.llbDepositClose.TabStop = true;
             this.llbDepositClose.Text = "_";
             this.llbDepositClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbDepositClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbDeposit_LinkClicked);
             // 
             // llbTransferClose
             // 
@@ -681,6 +690,7 @@
             this.llbTransferClose.TabStop = true;
             this.llbTransferClose.Text = "_";
             this.llbTransferClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbTransferClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbTransfer_LinkClicked);
             // 
             // llbCreditClose
             // 
@@ -694,6 +704,7 @@
             this.llbCreditClose.TabStop = true;
             this.llbCreditClose.Text = "_";
             this.llbCreditClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbCreditClose.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbCredits_LinkClicked);
             // 
             // gbFiltros
             // 
@@ -709,6 +720,80 @@
             this.gbFiltros.TabIndex = 0;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
+            // 
+            // chbOther
+            // 
+            this.chbOther.AutoSize = true;
+            this.chbOther.Checked = true;
+            this.chbOther.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbOther.Location = new System.Drawing.Point(209, 16);
+            this.chbOther.Name = "chbOther";
+            this.chbOther.Size = new System.Drawing.Size(101, 17);
+            this.chbOther.TabIndex = 9;
+            this.chbOther.Text = "Usar otros filtros";
+            this.chbOther.UseVisualStyleBackColor = true;
+            this.chbOther.Click += new System.EventHandler(this.chbOther_Click);
+            // 
+            // chbDate
+            // 
+            this.chbDate.AutoSize = true;
+            this.chbDate.Location = new System.Drawing.Point(10, 16);
+            this.chbDate.Name = "chbDate";
+            this.chbDate.Size = new System.Drawing.Size(81, 17);
+            this.chbDate.TabIndex = 8;
+            this.chbDate.Text = "Usar Fecha";
+            this.chbDate.UseVisualStyleBackColor = true;
+            this.chbDate.Click += new System.EventHandler(this.chbDate_Click);
+            // 
+            // gbOthers
+            // 
+            this.gbOthers.Controls.Add(this.cbShifts);
+            this.gbOthers.Controls.Add(this.label6);
+            this.gbOthers.Controls.Add(this.cbCashiers);
+            this.gbOthers.Controls.Add(this.label4);
+            this.gbOthers.Location = new System.Drawing.Point(208, 35);
+            this.gbOthers.Name = "gbOthers";
+            this.gbOthers.Size = new System.Drawing.Size(302, 60);
+            this.gbOthers.TabIndex = 7;
+            this.gbOthers.TabStop = false;
+            this.gbOthers.Text = "Otros";
+            // 
+            // cbShifts
+            // 
+            this.cbShifts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbShifts.FormattingEnabled = true;
+            this.cbShifts.Location = new System.Drawing.Point(160, 32);
+            this.cbShifts.Name = "cbShifts";
+            this.cbShifts.Size = new System.Drawing.Size(134, 21);
+            this.cbShifts.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(157, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Por Turno";
+            // 
+            // cbCashiers
+            // 
+            this.cbCashiers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCashiers.FormattingEnabled = true;
+            this.cbCashiers.Location = new System.Drawing.Point(8, 32);
+            this.cbCashiers.Name = "cbCashiers";
+            this.cbCashiers.Size = new System.Drawing.Size(134, 21);
+            this.cbCashiers.TabIndex = 5;
+            this.cbCashiers.SelectedIndexChanged += new System.EventHandler(this.cbCashiers_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Por Cajeros";
             // 
             // btnCancel
             // 
@@ -788,79 +873,6 @@
             this.label15.TabIndex = 4;
             this.label15.Text = "Desde";
             // 
-            // gbOthers
-            // 
-            this.gbOthers.Controls.Add(this.cbShifts);
-            this.gbOthers.Controls.Add(this.label6);
-            this.gbOthers.Controls.Add(this.cbCashiers);
-            this.gbOthers.Controls.Add(this.label4);
-            this.gbOthers.Location = new System.Drawing.Point(208, 35);
-            this.gbOthers.Name = "gbOthers";
-            this.gbOthers.Size = new System.Drawing.Size(302, 60);
-            this.gbOthers.TabIndex = 7;
-            this.gbOthers.TabStop = false;
-            this.gbOthers.Text = "Otros";
-            // 
-            // cbShifts
-            // 
-            this.cbShifts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbShifts.FormattingEnabled = true;
-            this.cbShifts.Location = new System.Drawing.Point(160, 32);
-            this.cbShifts.Name = "cbShifts";
-            this.cbShifts.Size = new System.Drawing.Size(134, 21);
-            this.cbShifts.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Por Turno";
-            // 
-            // cbCashiers
-            // 
-            this.cbCashiers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCashiers.FormattingEnabled = true;
-            this.cbCashiers.Location = new System.Drawing.Point(8, 32);
-            this.cbCashiers.Name = "cbCashiers";
-            this.cbCashiers.Size = new System.Drawing.Size(134, 21);
-            this.cbCashiers.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Por Cajeros";
-            // 
-            // chbDate
-            // 
-            this.chbDate.AutoSize = true;
-            this.chbDate.Location = new System.Drawing.Point(10, 16);
-            this.chbDate.Name = "chbDate";
-            this.chbDate.Size = new System.Drawing.Size(81, 17);
-            this.chbDate.TabIndex = 8;
-            this.chbDate.Text = "Usar Fecha";
-            this.chbDate.UseVisualStyleBackColor = true;
-            this.chbDate.Click += new System.EventHandler(this.chbDate_Click);
-            // 
-            // chbOther
-            // 
-            this.chbOther.AutoSize = true;
-            this.chbOther.Checked = true;
-            this.chbOther.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbOther.Location = new System.Drawing.Point(209, 16);
-            this.chbOther.Name = "chbOther";
-            this.chbOther.Size = new System.Drawing.Size(101, 17);
-            this.chbOther.TabIndex = 9;
-            this.chbOther.Text = "Usar otros filtros";
-            this.chbOther.UseVisualStyleBackColor = true;
-            this.chbOther.Click += new System.EventHandler(this.chbOther_Click);
-            // 
             // frmReporteCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -897,10 +909,10 @@
             this.panel2.ResumeLayout(false);
             this.gbFiltros.ResumeLayout(false);
             this.gbFiltros.PerformLayout();
-            this.gbDate.ResumeLayout(false);
-            this.gbDate.PerformLayout();
             this.gbOthers.ResumeLayout(false);
             this.gbOthers.PerformLayout();
+            this.gbDate.ResumeLayout(false);
+            this.gbDate.PerformLayout();
             this.ResumeLayout(false);
 
         }

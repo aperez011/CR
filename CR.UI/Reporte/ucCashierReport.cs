@@ -170,8 +170,8 @@ namespace CR.UI.Reporte
                 //serializer.Serialize(textWriter, reportData);
                 //textWriter.Close();
 
-                bsReportHeader.DataSource = result.Data.Header;
-                bsReportDetail.DataSource = result.Data.DetailResume;
+                bsReportHeader.DataSource = reportData.Header;
+                bsReportDetail.DataSource = reportData.DetailResume;
             }
             else
             {

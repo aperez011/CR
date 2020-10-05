@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CR.UI", "CR.UI\CR.UI.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CR.Entities", "CR.Entities\CR.Entities.csproj", "{00C44D6E-89AD-4F8E-BDD2-229B87D2F3FE}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CashRegister", "CashRegister\CashRegister.vdproj", "{1EEAEA20-361C-4FBF-BE55-92F3C4DBA36B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{00C44D6E-89AD-4F8E-BDD2-229B87D2F3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00C44D6E-89AD-4F8E-BDD2-229B87D2F3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00C44D6E-89AD-4F8E-BDD2-229B87D2F3FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EEAEA20-361C-4FBF-BE55-92F3C4DBA36B}.Debug|Any CPU.ActiveCfg = Debug
+		{1EEAEA20-361C-4FBF-BE55-92F3C4DBA36B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

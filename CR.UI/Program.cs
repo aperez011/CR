@@ -22,6 +22,10 @@ namespace CR.UI
             Application.SetCompatibleTextRenderingDefault(false);
             ServicesInjection();
 
+            string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string path = (System.IO.Path.GetDirectoryName(executable));
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+
             Application.Run(_con.GetInstance<frmMain>());
         }   
 

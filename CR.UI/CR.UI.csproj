@@ -8,7 +8,7 @@
     <ProjectGuid>{03406700-BA4E-40D4-BB2F-8B4557BE7615}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CR.UI</RootNamespace>
-    <AssemblyName>CR.UI</AssemblyName>
+    <AssemblyName>Cash Register</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
